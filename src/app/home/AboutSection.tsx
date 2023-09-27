@@ -16,9 +16,9 @@ const AboutSection = async () => {
   return (
     <main id="about" className="pb-32 pt-12">
       <div className="flex flex-col gap-4 items-center">
-        <h1 className="text-4xl font-semibold font-secondary">ABOUT ME</h1>
+        <h1 className="text-4xl font-semibold font-secondary text-center">ABOUT ME</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>
-        <p className="text-base text-secondary font-light text-center px-4 max-w-2xl">
+        <p className="text-secondary font-light text-center px-4 text-sm sm:text-base max-w-2xl">
           Here you will find more information about me, what I do, and my
           current skills
         </p>
@@ -29,7 +29,7 @@ const AboutSection = async () => {
             Get to know me!
           </h2>
           <div className="text-secondary space-y-4">
-            <p className="max-w-lg font-light text-base">
+            <p className="max-w-lg font-light text-sm sm:text-base">
               I am a dedicated{" "}
               <span className="font-bold">Full Stack Developer</span> with
               expertise in backend development using Node.js and frontend
@@ -38,7 +38,7 @@ const AboutSection = async () => {
               collaboration to translate their vision into functional and
               visually appealing web applications.
             </p>
-            <p className="max-w-lg font-light text-base">
+            <p className="max-w-lg font-light text-sm sm:text-base">
               I take pride in writing clean, efficient, and maintainable code
               with attention to detail and a strong eye for design. What sets me
               apart is my ability to thrive in fast-paced environments,
@@ -46,7 +46,7 @@ const AboutSection = async () => {
               challenges. I stay up to date with industry trends, using
               cutting-edge technologies to create impactful web applications.
             </p>
-            <p className="max-w-lg font-light text-base">
+            <p className="max-w-lg font-light text-sm sm:text-base">
               I am excited about collaborating on new projects, bringing ideas
               to life and creating exceptional web applications that make a
               difference. Let&apos;s discuss how we can work together to achieve

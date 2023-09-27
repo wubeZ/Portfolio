@@ -19,7 +19,7 @@ const ProjectSection = async () => {
       <div className="flex flex-col gap-4 items-center">
         <h1 className="text-4xl font-semibold font-secondary">PROJECT</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>
-        <p className="text-base font-light text-secondary text-center px-4 max-w-2xl">
+        <p className="text-sm sm:text-base font-light text-secondary text-center px-4 max-w-2xl">
           Here you will find some of the personal and clients projects that I
           created.
         </p>
@@ -29,11 +29,11 @@ const ProjectSection = async () => {
             <ProjectCard key={index} index={index} {...item} />,
           ])}
       </div>
-      <div className="flex flex-col items-center gap-4 pt-24">
-        <h2 className="text-2xl font-semibold font-secondary">
+      <div className="flex flex-col justify-center items-center gap-4 pt-24">
+        <h2 className="text-2xl font-semibold font-secondary text-center">
           Other Noteworthy Projects
         </h2>
-        <p className="font-secondary text-lg text-secondary font-light">
+        <p className="font-secondary text-sm sm:text-lg text-secondary font-light">
           view the archive
         </p>
         <div className="max-w-5xl gap-4 px-3 sm:px-2 flex flex-wrap justify-center my-8">

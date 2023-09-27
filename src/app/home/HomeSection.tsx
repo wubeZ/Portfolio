@@ -44,7 +44,7 @@ const HomeSection = () => {
         <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8">
           HEY, I&apos;M WUBSHET ZELEKE
         </h1>
-        <p className="font-third font-light max-w-3xl px-12 text-secondary">
+        <p className="font-third font-light max-w-3xl text-sm sm:text-base px-12 text-secondary">
           I am a skilled{" "}
           <span className="font-bold text-slate-300">Full Stack Developer</span>{" "}
           with 2 years of experience, specializing in robust web applications. I

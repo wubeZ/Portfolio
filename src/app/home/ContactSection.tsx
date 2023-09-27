@@ -39,10 +39,10 @@ const ContactSection = () => {
   };
   return (
     <main id="contact" className="mt-24 pb-16 px-4">
-      <div className="flex flex-col gap-4 items-center">
-        <h1 className="text-4xl font-semibold font-secondary">GET IN TOUCH!</h1>
+      <div className="flex flex-col gap-4 justify-center items-center">
+        <h1 className="text-4xl font-semibold font-secondary text-center">GET IN TOUCH!</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>
-        <p className="text-base font-light text-secondary text-center px-4 max-w-2xl">
+        <p className="text-sm sm:text-base font-light text-secondary text-center px-4 max-w-2xl">
           Feel free to Contact me by submitting the form below and I will get
           back to you as soon as possible
         </p>

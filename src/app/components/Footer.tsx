@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="flex flex-col-reverse justify-between gap-8 md:flex-row">
           <div className="space-y-4">
             <h2 className="font-semibold text-lg">Wubshet Zeleke</h2>
-            <p className="text-sm font-light max-w-lg">
+            <p className="text-xs sm:text-sm font-light max-w-lg">
               A <span className="font-medium">Full Stack Developer</span> dedicated to delivering high-quality
               solutions tailored to client needs, ensuring satisfaction through
               timely project delivery and exceeding expectations.
