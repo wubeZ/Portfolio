@@ -63,7 +63,7 @@ const HomeSection = () => {
           <ul className="w-14 flex flex-col gap-8 py-4 rounded-r-md shadow-black bg-[#5949e81a] text-[#45c7fbac] shadow-md items-center text-3xl ">
             {socials.map(({ title, link, icon }: Social, index: number) => {
               return (
-                <Link target="blank" href={link} key={index}>
+                <Link target="blank" href={link} key={index} aria-label={`link to ${title}`}>
                   <li className="relative hover:scale-125 hover:text-[#FFFFFF] cursor-pointer">
                     <span>{icon}</span>
                   </li>
@@ -72,7 +72,7 @@ const HomeSection = () => {
             })}
           </ul>
         </div>
-        <Link href="#about">
+        <Link href="#about" aria-label="Scroll down to About Section">
           <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 cursor-pointer">
             <span className="text-sm animate-bounce">
               <HiOutlineChevronDoubleDown />

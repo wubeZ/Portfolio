@@ -53,14 +53,14 @@ const ProjectCard = ({
           } text-white`}
         >
           {githubLink && (
-            <Link target="blank" href={githubLink}>
+            <Link target="blank" href={githubLink} aria-label="link to github repo">
               <span>
                 <FiGithub />
               </span>
             </Link>
           )}
           {siteLink && (
-            <Link target="blank" href={siteLink}>
+            <Link target="blank" href={siteLink} aria-label="link to site">
               <span>
                 <FiExternalLink />
               </span>
@@ -71,7 +71,7 @@ const ProjectCard = ({
       <div
         className={`w-full h-[320px] cursor-pointer md:opacity-100 opacity-10`}
       >
-        <Link target="blank" href={siteLink || githubLink || ""}>
+        <Link target="blank" href={siteLink || githubLink || ""} aria-label="link to site or github repo">
           <Image
             src={backgroundImage?.image || ""}
             width={200}
