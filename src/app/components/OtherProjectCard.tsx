@@ -13,44 +13,46 @@ const OtherProjectCard = ({
   techUsed,
 }: Project) => {
   return (
-    <section className="w-80 xs:w-96 h-72 hover:sm:scale-105">
-      <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
-        <div className="flex justify-between">
-          <span className="text-2xl">
-            <BsFolder />
-          </span>
-          <p className="flex gap-2 text-white text-2xl">
-            {githubLink && (
-              <Link target="blank" href={githubLink}>
-                <span>
-                  <FiGithub />
-                </span>
-              </Link>
-            )}
-            {siteLink && (
-              <Link target="blank" href={siteLink}>
-                <span>
-                  <FiExternalLink />
-                </span>
-              </Link>
-            )}
+    <Link target="blank" href={siteLink || githubLink || ""} className="cursor-pointer hover:text-[#aef3bfda]">
+      <main className="w-80 xs:w-96 h-72 hover:sm:-translate-y-2 transition-all ease-linear">
+        <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
+          <div className="flex justify-between">
+            <p className="text-4xl">
+              <BsFolder />
+            </p>
+            <p className="flex gap-2 text-white text-2xl">
+              {githubLink && (
+                <Link target="blank" href={githubLink}>
+                  <span className="hover:text-[#aef3bfda]">
+                    <FiGithub />
+                  </span>
+                </Link>
+              )}
+              {siteLink && (
+                <Link target="blank" href={siteLink}>
+                  <span className="hover:text-[#aef3bfda]">
+                    <FiExternalLink />
+                  </span>
+                </Link>
+              )}
+            </p>
+          </div>
+          <h2 className="text-lg font-bold">{title}</h2>
+          <p className="text-sm text-secondary max-w-md h-24 line-clamp-5">
+            {description}
           </p>
+          <div className="flex flex-wrap text-teal-400 gap-2 max-w-md">
+            {techUsed.map((tech: string, index: number) => {
+              return (
+                <p className="text-sm font-tech" key={index}>
+                  {tech}
+                </p>
+              );
+            })}
+          </div>
         </div>
-        <h2 className="text-lg font-bold text-white">{title}</h2>
-        <p className="text-sm text-secondary max-w-md h-24 line-clamp-5">
-          {description}
-        </p>
-        <div className="flex flex-wrap text-teal-400 gap-2 max-w-md">
-          {techUsed.map((tech: string, index: number) => {
-            return (
-              <p className="text-sm font-tech" key={index}>
-                {tech}
-              </p>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+      </main>
+    </Link>
   );
 };
 
