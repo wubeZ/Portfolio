@@ -52,7 +52,11 @@ const HomeSection = () => {
           needs, ensuring satisfaction through timely project delivery and
           exceeding expectations.
         </p>
-        <Link target="blank" href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`} className="bg-[#3652f14d] hover:bg-[#3652f16f] w-48 rounded-lg text-lg px-3 py-3 text-center text-white font-secondary">
+        <Link
+          target="blank"
+          href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
+          className="bg-[#3652f14d] hover:bg-[#3652f16f] w-48 rounded-lg text-lg px-3 py-3 text-center text-white font-secondary"
+        >
           Resume
         </Link>
         <div className="hidden md:block 2xl:hidden absolute left-0">
@@ -68,9 +72,13 @@ const HomeSection = () => {
             })}
           </ul>
         </div>
-        <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 ">
-          <span className="text-sm animate-bounce"><HiOutlineChevronDoubleDown /></span>
-        </p>
+        <Link href="#about">
+          <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 cursor-pointer">
+            <span className="text-sm animate-bounce">
+              <HiOutlineChevronDoubleDown />
+            </span>
+          </p>
+        </Link>
       </div>
     </main>
   );

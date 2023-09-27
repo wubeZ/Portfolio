@@ -1,13 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineArrowUp } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
+import icon from "../../../public/wz-icon.png"
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [backToTopState, setbackToTopState] = useState<boolean>(false);
+  const wrapperRef = useRef(null);
+
+  useClickOutside(wrapperRef, () => {
+    setOpenMenu(false);
+  });
 
   const BackToTop = () => {
     window.scrollTo(0, 0);
@@ -30,8 +38,8 @@ const Navbar = () => {
     <main className="sticky z-50 top-0 bg-[#0c081c] text-white h-20 w-full flex items-center shadow-lg">
       <div className="flex justify-between items-center mx-4 w-full">
         <Link href="#home">
-          <h1 className="text-xl font-third font-bold cursor-pointer hover:text-teal-300">
-            Wubshet Zeleke
+          <h1 className="text-xl font-third font-bold cursor-pointer hover:text-teal-300 hover:scale-105 w-8 md:w-10 h-8 md:h-10 ml-0 sm:ml-8">
+            <Image src={icon} width={50} height={50} alt="Wubshet Zeleke" className="object-cover"/>
           </h1>
         </Link>
         <p
@@ -64,7 +72,7 @@ const Navbar = () => {
         </ul>
       </div>
       {openMenu && (
-        <div className="flex sm:hidden absolute right-0 top-16 mr-4 bg-slate-900 py-2 w-40">
+        <nav className="flex sm:hidden absolute right-0 top-16 mr-4 bg-slate-900 py-2 w-40" ref={wrapperRef}>
           <ul className="flex flex-col gap-8 py-4 px-6 font-light font-third">
             <Link href="#home">
               <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
@@ -87,7 +95,7 @@ const Navbar = () => {
               </li>
             </Link>
           </ul>
-        </div>
+        </nav>
       )}
 
       <div
