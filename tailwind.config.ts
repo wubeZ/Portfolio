@@ -14,10 +14,10 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily:{
-        'primary': ["Roboto", "sans-serif"],
-        "secondary": ["Roboto Mono", "sans-serif"],
-        "third": ["Source Sans 3", "sans-serif"],
-        "tech": ["Victor Mono","monospace"]
+        'primary': ["sans-serif"],
+        "secondary": ["sans-serif"],
+        "third": ["sans-serif"],
+        "tech": ["monospace"]
       },
       colors: {
         "secondary" : "#a9a6b1"
