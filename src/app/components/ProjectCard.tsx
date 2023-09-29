@@ -77,7 +77,7 @@ const ProjectCard = ({
             width={200}
             height={200}
             alt={backgroundImage?.alt || "Background Image"}
-            className="object-fit h-full w-full opacity-70 hover:opacity-100 transition-opacity ease-in-out delay-100"
+            className="object-cover h-full w-full opacity-70 hover:opacity-100 transition-opacity ease-in-out delay-100"
           />
         </Link>
       </div>
