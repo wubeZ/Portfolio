@@ -38,7 +38,7 @@ const ContactSection = () => {
 
   };
   return (
-    <main id="contact" className="mt-24 pb-16 px-4">
+    <main id="contact" className="mt-24 pt-24 pb-16 px-4">
       <div className="flex flex-col gap-4 justify-center items-center">
         <h1 className="text-4xl font-semibold font-secondary text-center">GET IN TOUCH!</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>

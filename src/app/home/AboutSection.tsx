@@ -14,7 +14,7 @@ const AboutSection = async () => {
     await getProgLanguages();
 
   return (
-    <main id="about" className="pb-32 pt-12">
+    <main id="about" className="pb-28 pt-24">
       <div className="flex flex-col gap-4 items-center">
         <h1 className="text-4xl font-semibold font-secondary text-center">ABOUT ME</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>
@@ -24,11 +24,11 @@ const AboutSection = async () => {
         </p>
       </div>
       <div className="flex flex-col md:flex-row md:justify-center gap-24 mt-12  px-6 sm:pl-12 md:pl-28">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           <h2 className="font-secondary font-semibold text-2xl">
             Get to know me!
           </h2>
-          <div className="text-secondary space-y-4">
+          <div className="text-secondary space-y-3">
             <p className="max-w-lg font-light text-sm sm:text-base">
               I am a dedicated{" "}
               <span className="font-bold">Full Stack Developer</span> with

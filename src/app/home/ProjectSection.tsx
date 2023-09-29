@@ -15,7 +15,7 @@ const ProjectSection = async () => {
   const otherProjects = newProject.filter((proj)=> proj.featured !== true)
 
   return (
-    <main id="project" className="min-h-screen mt-10">
+    <main id="project" className="min-h-screen mt-10 pt-24">
       <div className="flex flex-col gap-4 items-center">
         <h1 className="text-4xl font-semibold font-secondary">PROJECT</h1>
         <div className="border-b-4 border-blue-800 w-6"></div>

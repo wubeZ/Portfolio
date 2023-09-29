@@ -39,7 +39,7 @@ const socials: Social[] = [
 
 const HomeSection = () => {
   return (
-    <main id="home" className="relative  pb-12">
+    <main id="home" className="relative  pb-10">
       <div className="flex flex-col items-center gap-8 md:gap-16 pt-24 mb-16 sm:pt-36 md:pt-44 md:ml-12 text-center">
         <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8">
           HEY, I&apos;M WUBSHET ZELEKE
