@@ -6,6 +6,8 @@ const ContactSection = () => {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [isSending, setSending] = useState<boolean>(false)
+  const [isSuccess, setSuccess] = useState<boolean>(false)
+  const [isError, setError] = useState<boolean>(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,15 +28,19 @@ const ContactSection = () => {
     // Handle response
     const data = await response.json();
     if(data.message === "OK"){
-      alert("Email Sent. I will get back to you as soon as possible.")
+      setSuccess(true)
     }
     else{
-      alert("Email Not Sent. Try Again Later...")
+      setError(true)
     }
     setName("");
     setEmail("");
     setMessage("");
-    setSending(false)
+    setSending(false);
+    setTimeout(()=>{
+      setSuccess(false)
+      setError(false)
+    }, 7000)
 
   };
   return (
@@ -46,6 +52,10 @@ const ContactSection = () => {
           Feel free to Contact me by submitting the form below and I will get
           back to you as soon as possible
         </p>
+      </div>
+      <div className="max-w-lg mx-auto mt-8 px-8">
+        {isSuccess && <p className="text-center font-secondary text-lg border border-slate-300 opacity-80  bg-green-500 w-full py-4 px-2 rounded-md">Email Sent. I will get back to you as soon as possible.</p>}
+        {isError && <p className="text-center text-lg font-secondary border border-slate-300 opacity-80 bg-red-500 w-full py-4 rounded-md">Email Not Sent. Try Again Later...</p>}
       </div>
       <div className="mx-auto max-w-4xl mt-12 px-8 bg-[#2b394d4c]">
         <form className="flex flex-col gap-4 py-8" onSubmit={handleSubmit}>
