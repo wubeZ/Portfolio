@@ -9,8 +9,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Wubshet Zeleke',
-  description: 'Full-stack Developer',
-  
+  description: 'Wubshet Zeleke is a full stack developer who specializes in robust web application.',
+  keywords: ["wubshet zeleke", "wube", "Full stack developer", "developer at Ethiopia", "Backend developer", "wubeZ", "Ethiopia developer", "best developer near me", "best fullstack developer in Ethiopia"],
+  openGraph: {
+    images: 'https://wubshetzeleke.vercel.app/wz-icon.png'
+  }
 }
 
 export default function RootLayout({
@@ -22,7 +25,6 @@ export default function RootLayout({
     <html lang="en" className='scroll-smooth'>
       <head>
       <link rel="icon" href="/favicon.ico" />
-      <meta property="og:image" content="./favicon.ico"></meta>
       </head>
       <body className={` ${inter.className} transition-colors ease-linear bg-gradient-to-r from-[#1f1e1e] to-[#1e044a]`}>
         <Navbar/>
