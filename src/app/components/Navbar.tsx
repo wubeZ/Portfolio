@@ -35,8 +35,8 @@ const Navbar = () => {
   });
 
   return (
-    <main className="sticky z-50 top-0 bg-[#0c081c] text-white h-20 w-full flex items-center shadow-lg">
-      <div className="flex justify-between items-center mx-4 w-full">
+    <main className="sticky z-50 top-0 text-white h-20 w-full flex shadow-lg">
+      <div className="flex justify-between items-center px-4 w-full glass-effect">
         <Link href="#home">
           <h1 className="text-xl font-third font-bold cursor-pointer hover:text-teal-300 hover:scale-105 w-8 md:w-10 h-8 md:h-10 ml-0 sm:ml-8">
             <Image src={icon} width={50} height={50} alt="Wubshet Zeleke" className="object-cover"/>

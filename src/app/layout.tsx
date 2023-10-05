@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
       <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={` ${inter.className} transition-colors ease-linear`}>
+      <body className={` ${inter.className} transition-colors ease-linear bg-gradient-to-r from-[#1f1e1e] to-[#1e044a]`}>
         <Navbar/>
         {children}
         <Footer/>
