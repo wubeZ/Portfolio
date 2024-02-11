@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 import { Social } from "@/lib/types";
@@ -24,7 +25,7 @@ const socials: Social[] = [
   {
     title: "Twitter",
     link: "https://www.twitter.com/wube_Z",
-    icon: <FaTwitter />,
+    icon: <FaXTwitter />,
   },
   {
     title: "Leetcode",

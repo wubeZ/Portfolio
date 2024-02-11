@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
@@ -28,7 +29,7 @@ const socials: Social[] = [
   {
     title: "Twitter",
     link: "https://www.twitter.com/wube_Z",
-    icon: <FaTwitter />,
+    icon: <FaXTwitter />,
   },
   {
     title: "Leetcode",
