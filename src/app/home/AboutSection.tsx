@@ -60,7 +60,7 @@ const AboutSection = async () => {
           </div>
           <Link
             href="#contact"
-            className="w-32 bg-[#3652f14d] hover:bg-[#e241412a] transition-colors duration-200 text-center text-white font-secondary rounded-md px-4 py-2"
+            className="w-32 bg-[#3652f14d] hover:bg-[#10d1ef55] transition-colors duration-200 text-center text-white font-secondary rounded-md px-4 py-2"
           >
             CONTACT
           </Link>
@@ -77,7 +77,7 @@ const AboutSection = async () => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm hover:bg-[#e241412a] transition-colors duration-200 hover:text-red-300 hover:shadow-md hover:font-bold hover:border hover:border-red-500 hover:outline-offset-8 hover:scale-110 hover:cursor-pointer"
+                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
                   >
                     {skill}
                   </div>
@@ -93,7 +93,7 @@ const AboutSection = async () => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm hover:bg-[#e241412a] transition-colors duration-200 hover:text-red-300 hover:shadow-md hover:font-bold hover:border hover:border-red-500 hover:outline-offset-8 hover:scale-110 hover:cursor-pointer"
+                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
                   >
                     {skill}
                   </div>
@@ -109,7 +109,7 @@ const AboutSection = async () => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm hover:bg-[#e241412a] transition-colors duration-200 hover:text-red-300 hover:shadow-md hover:font-bold hover:border hover:border-red-500 hover:outline-offset-8 hover:scale-110 hover:cursor-pointer"
+                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
                   >
                     {skill}
                   </div>
@@ -123,7 +123,7 @@ const AboutSection = async () => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm hover:bg-[#e241412a] transition-colors duration-200 hover:text-red-300 hover:shadow-md hover:font-bold hover:border hover:border-red-500 hover:outline-offset-8 hover:scale-110 hover:cursor-pointer"
+                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
                   >
                     {skill}
                   </div>

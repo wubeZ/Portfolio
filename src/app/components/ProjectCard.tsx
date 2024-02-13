@@ -61,14 +61,14 @@ const ProjectCard = ({
               href={githubLink}
               aria-label="link to github repo"
             >
-              <span className="hover:text-red-500 transition-colors duration-200">
+              <span className="hover:text-cyan-500 transition-colors duration-200">
                 <FiGithub />
               </span>
             </Link>
           )}
           {siteLink && (
             <Link target="blank" href={siteLink} aria-label="link to site">
-              <span className="hover:text-red-500 transition-colors duration-200">
+              <span className="hover:text-cyan-500 transition-colors duration-200">
                 <FiExternalLink />
               </span>
             </Link>

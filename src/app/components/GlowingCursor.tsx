@@ -29,7 +29,7 @@ const GlowingCursor: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className="w-40 h-40 rounded-full bg-gradient-to-br from-[#701b1b] via-transparent to-[#701b1b] opacity-70 absolute pointer-events-none mix-blend-screen z-50 shadow-glow transition-all ease-linear border-2 border-[#6c6a73] border-opacity-50 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 2xl:w-72 2xl:h-72 3xl:w-80 3xl:h-80"
+      className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d8d8d8] via-transparent to-[#d8d8d8] opacity-50 absolute pointer-events-none mix-blend-screen z-50 shadow-glow transition-all ease-linear border-2 border-[#d8d8d8] border-opacity-50 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 3xl:w-32 3xl:h-32"
     ></div>
   );
 };

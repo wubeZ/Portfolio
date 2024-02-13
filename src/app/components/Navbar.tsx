@@ -56,22 +56,22 @@ const Navbar = () => {
         </p>
         <ul className="hidden sm:flex items-center gap-14 pr-12 md:pr-16 text-xs md:text-sm lg:text-base font-primary font-light">
           <Link href="#home">
-            <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
               HOME
             </li>
           </Link>
           <Link href="#about">
-            <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200  hover:border-b-2 border-slate-300">
+            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500   border-slate-300">
               ABOUT
             </li>
           </Link>
           <Link href="#project">
-            <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
               PROJECT
             </li>
           </Link>
           <Link href="#contact">
-            <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
               CONTACT
             </li>
           </Link>
@@ -84,22 +84,22 @@ const Navbar = () => {
         >
           <ul className="flex flex-col gap-8 py-4 px-6 font-light font-third">
             <Link href="#home">
-              <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
                 HOME
               </li>
             </Link>
             <Link href="#about">
-              <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
                 ABOUT
               </li>
             </Link>
             <Link href="#project">
-              <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
                 PROJECT
               </li>
             </Link>
             <Link href="#contact">
-              <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
+              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
                 CONTACT
               </li>
             </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
         onClick={BackToTop}
         className={`z-30 transition-all delay-50 ${
           backToTopState ? "scale-1" : "scale-0"
-        } fixed bottom-10 right-10 rounded-full text-white bg-[#2b2b54] text-2xl p-4 font-bold cursor-pointer hover:scale-110 shadow-lg shadow-black/30 hover:border hover:border-red-500 hover:text-red-500`}
+        } fixed bottom-10 right-10 rounded-full text-white bg-[#2b2b54] text-2xl p-4 font-bold cursor-pointer hover:scale-110 shadow-lg shadow-black/30`}
       >
         <AiOutlineArrowUp />
       </div>
