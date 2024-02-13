@@ -41,7 +41,7 @@ const ProjectSection = async () => {
               <OtherProjectCard key={index} {...item} />,
             ])}
         </div>
-        <Link href="https://github.com/wubeZ" target="blank" className="bg-[#3652f14d] hover:bg-[#3652f16f] text-center text-white w-28 px-2 py-4 cursor-pointer mt-4">
+        <Link href="https://github.com/wubeZ" target="blank" className="bg-[#3652f14d] hover:bg-[#e241412a] transition-colors duration-200  text-center text-white w-28 px-2 py-4 cursor-pointer mt-4">
           Show More
         </Link>
       </div>

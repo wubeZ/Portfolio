@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineArrowUp } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
-import icon from "../../../public/wz-icon.png"
+import icon from "../../../public/wz-icon.png";
 import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
@@ -35,11 +35,17 @@ const Navbar = () => {
   });
 
   return (
-    <main className="sticky z-50 top-0 text-white h-20 w-full flex shadow-lg">
+    <main className="sticky z-40 top-0 text-white h-20 w-full flex shadow-lg">
       <div className="flex justify-between items-center px-4 w-full glass-effect">
         <Link href="#home">
           <h1 className="text-xl font-third font-bold cursor-pointer hover:text-teal-300 hover:scale-105 w-8 md:w-10 h-8 md:h-10 ml-0 sm:ml-8">
-            <Image src={icon} width={50} height={50} alt="Wubshet Zeleke" className="object-cover"/>
+            <Image
+              src={icon}
+              width={50}
+              height={50}
+              alt="Wubshet Zeleke"
+              className="object-cover"
+            />
           </h1>
         </Link>
         <p
@@ -72,7 +78,10 @@ const Navbar = () => {
         </ul>
       </div>
       {openMenu && (
-        <nav className="flex sm:hidden absolute right-0 top-16 mr-4 bg-slate-900 py-2 w-40" ref={wrapperRef}>
+        <nav
+          className="flex sm:hidden absolute right-0 top-16 mr-4 bg-slate-900 py-2 w-40"
+          ref={wrapperRef}
+        >
           <ul className="flex flex-col gap-8 py-4 px-6 font-light font-third">
             <Link href="#home">
               <li className="hover:font-medium hover:outline-offset-8 hover:text-teal-200 hover:border-b-2 border-slate-300">
@@ -100,9 +109,9 @@ const Navbar = () => {
 
       <div
         onClick={BackToTop}
-        className={`z-40 transition-all delay-50 ${
+        className={`z-30 transition-all delay-50 ${
           backToTopState ? "scale-1" : "scale-0"
-        } fixed bottom-10 right-10 rounded-full text-white bg-[#2b2b54] text-2xl p-4 font-bold cursor-pointer hover:scale-110 shadow-lg shadow-black/30`}
+        } fixed bottom-10 right-10 rounded-full text-white bg-[#2b2b54] text-2xl p-4 font-bold cursor-pointer hover:scale-110 shadow-lg shadow-black/30 hover:border hover:border-red-500 hover:text-red-500`}
       >
         <AiOutlineArrowUp />
       </div>

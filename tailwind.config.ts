@@ -21,7 +21,10 @@ const config: Config = {
       },
       colors: {
         "secondary" : "#a9a6b1"
-      }
+      },
+      boxShadow: {
+        glow: '0 0 20px rgba(255, 255, 255, 0.5)',
+      },
     },
   },
   plugins: [],

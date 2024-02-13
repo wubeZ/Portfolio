@@ -31,7 +31,7 @@ const ProjectCard = ({
       >
         <p className="text-sm text-secondary">Featured Project</p>
         <h2 className="text-lg font-bold text-white">{title}</h2>
-        <p className="text-sm py-6 text-teal-300 max-w-lg h-20 line-clamp-3">
+        <p className="text-sm py-6 text-teal-400 max-w-lg h-20 line-clamp-3 hover:text-slate-300 transition-colors duration-200">
           {description}
         </p>
         <div
@@ -41,7 +41,10 @@ const ProjectCard = ({
         >
           {techUsed.map((tech: string, index: number) => {
             return (
-              <p className="text-sm font-tech" key={index}>
+              <p
+                className="text-sm font-tech hover:text-red-300 transition-colors duration-200"
+                key={index}
+              >
                 {tech}
               </p>
             );
@@ -53,15 +56,19 @@ const ProjectCard = ({
           } text-white`}
         >
           {githubLink && (
-            <Link target="blank" href={githubLink} aria-label="link to github repo">
-              <span>
+            <Link
+              target="blank"
+              href={githubLink}
+              aria-label="link to github repo"
+            >
+              <span className="hover:text-red-500 transition-colors duration-200">
                 <FiGithub />
               </span>
             </Link>
           )}
           {siteLink && (
             <Link target="blank" href={siteLink} aria-label="link to site">
-              <span>
+              <span className="hover:text-red-500 transition-colors duration-200">
                 <FiExternalLink />
               </span>
             </Link>
@@ -71,7 +78,11 @@ const ProjectCard = ({
       <div
         className={`w-full h-[320px] cursor-pointer md:opacity-100 opacity-10`}
       >
-        <Link target="blank" href={siteLink || githubLink || ""} aria-label="link to site or github repo">
+        <Link
+          target="blank"
+          href={siteLink || githubLink || ""}
+          aria-label="link to site or github repo"
+        >
           <Image
             src={backgroundImage?.image || ""}
             width={200}

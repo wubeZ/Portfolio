@@ -40,14 +40,27 @@ const socials: Social[] = [
 
 const HomeSection = () => {
   return (
-    <main id="home" className="relative  pb-10">
+    <main id="home" className="relative  pb-10 ">
       <div className="flex flex-col items-center gap-8 md:gap-16 pt-24 mb-16 sm:pt-36 md:pt-44 md:ml-12 text-center">
-        <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8">
-          HEY, I&apos;M WUBSHET ZELEKE
+        <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8  ">
+          <span className="hover:text-red-500 transition-colors duration-200">
+            HEY,
+          </span>
+          <span className="hover:text-red-500 transition-colors duration-200">
+            I&apos;M
+          </span>{" "}
+          <span className="hover:text-red-500 transition-colors duration-200">
+            WUBSHET
+          </span>{" "}
+          <span className="hover:text-red-500 transition-colors duration-200">
+            ZELEKE
+          </span>
         </h1>
-        <p className="font-third font-light max-w-3xl text-sm sm:text-base px-12 text-secondary">
+        <p className="font-third font-light max-w-3xl text-sm sm:text-base px-12 text-secondary hover:text-slate-300 transition-colors duration-200">
           I am a skilled{" "}
-          <span className="font-bold text-slate-300">Full Stack Developer</span>{" "}
+          <span className="font-bold text-slate-300 hover:text-red-500 transition-colors duration-200">
+            Full Stack Developer
+          </span>{" "}
           with 2 years of experience, specializing in robust web applications. I
           am dedicated to delivering high-quality solutions tailored to client
           needs, ensuring satisfaction through timely project delivery and
@@ -56,7 +69,7 @@ const HomeSection = () => {
         <Link
           target="blank"
           href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
-          className="bg-[#3652f14d] hover:bg-[#3652f16f] w-48 rounded-lg text-lg px-3 py-3 text-center text-white font-secondary"
+          className="bg-[#3652f14d] hover:bg-[#e241412a] transition-colors duration-200 w-48 rounded-lg text-lg px-3 py-3 text-center text-white font-secondary"
         >
           Resume
         </Link>
@@ -64,7 +77,12 @@ const HomeSection = () => {
           <ul className="w-14 flex flex-col gap-8 py-4 rounded-r-md shadow-black bg-[#5949e81a] text-[#45c7fbac] shadow-md items-center text-3xl ">
             {socials.map(({ title, link, icon }: Social, index: number) => {
               return (
-                <Link target="blank" href={link} key={index} aria-label={`link to ${title}`}>
+                <Link
+                  target="blank"
+                  href={link}
+                  key={index}
+                  aria-label={`link to ${title}`}
+                >
                   <li className="relative hover:scale-125 hover:text-[#FFFFFF] cursor-pointer">
                     <span>{icon}</span>
                   </li>
@@ -74,7 +92,7 @@ const HomeSection = () => {
           </ul>
         </div>
         <Link href="#about" aria-label="Scroll down to About Section">
-          <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 cursor-pointer">
+          <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 cursor-pointer hover:text-red-500 hover:border-red-500 transition-colors duration-200">
             <span className="text-sm animate-bounce">
               <HiOutlineChevronDoubleDown />
             </span>

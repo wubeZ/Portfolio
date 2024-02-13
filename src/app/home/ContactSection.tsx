@@ -105,7 +105,7 @@ const ContactSection = () => {
           ></textarea>
           <button
             type="submit"
-            className={` bg-[#3652f1a5] ${isSending ? "opacity-50 cursor-not-allowed": ""}  hover:bg-[#3652f1cb] sm:mx-auto text-white font-secondary rounded-md px-4 sm:px-12 py-2`}
+            className={` bg-[#3652f1a5] ${isSending ? "opacity-50 cursor-not-allowed": ""}  hover:bg-[#e241412a] transition-colors duration-200 sm:mx-auto text-white font-secondary rounded-md px-4 sm:px-12 py-2`}
           >
             {isSending ? "Sending..." :"SUBMIT"}
           </button>
