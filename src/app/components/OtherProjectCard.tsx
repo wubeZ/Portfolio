@@ -14,7 +14,7 @@ const OtherProjectCard = ({
 }: Project) => {
   return (
     <Link target="blank" href={siteLink || githubLink || ""} className="cursor-pointer hover:text-[#aef3bfda]" aria-label="link to site or github repo">
-      <main className="w-80 xs:w-96 h-72 hover:sm:-translate-y-2 transition-all ease-linear">
+      <main className="w-72 xs:w-96 h-72 hover:sm:-translate-y-2 transition-all ease-linear">
         <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
           <div className="flex justify-between">
             <p className="text-4xl">

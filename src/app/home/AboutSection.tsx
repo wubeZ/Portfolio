@@ -33,7 +33,7 @@ const AboutSection = async () => {
           <div className="text-secondary space-y-3">
             <p className="max-w-lg font-light text-sm sm:text-base hover:text-slate-300 transition-colors duration-200">
               I am a dedicated{" "}
-              <span className="font-bold hover:text-red-500 transition-colors duration-200">
+              <span className="font-bold hover:text-cyan-500 transition-colors duration-200">
                 Full Stack Developer
               </span>{" "}
               with expertise in backend development using Node.js and frontend
