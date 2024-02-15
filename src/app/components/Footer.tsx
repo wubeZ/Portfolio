@@ -1,8 +1,7 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
 import { Social } from "@/lib/types";
 import Link from "next/link";
 
@@ -28,9 +27,9 @@ const socials: Social[] = [
     icon: <FaXTwitter />,
   },
   {
-    title: "Leetcode",
-    link: "https://www.leetcode.com/wubshet",
-    icon: <SiLeetcode />,
+    title: "Telegram",
+    link: "https://t.me/wube_z",
+    icon: <FaTelegram />,
   },
 ];
 
@@ -52,7 +51,7 @@ const Footer = () => {
             <ul className="flex gap-8 py-4 items-center text-2xl ">
               {socials.map(({ title, link, icon }: Social, index: number) => {
               return (
-                <Link target="blank" href={link} key={index}>
+                <Link target="_blank" href={link} key={index}>
                   <li className="hover:scale-125 cursor-pointer">
                     <span>{icon}</span>
                   </li>

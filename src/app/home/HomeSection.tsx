@@ -4,8 +4,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaTelegram } from "react-icons/fa";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { Social } from "@/lib/types";
 import Link from "next/link";
@@ -32,9 +31,9 @@ const socials: Social[] = [
     icon: <FaXTwitter />,
   },
   {
-    title: "Leetcode",
-    link: "https://www.leetcode.com/wubshet",
-    icon: <SiLeetcode />,
+    title: "Telegram",
+    link: "https://t.me/wube_z",
+    icon: <FaTelegram />,
   },
 ];
 
@@ -78,7 +77,7 @@ const HomeSection = () => {
             {socials.map(({ title, link, icon }: Social, index: number) => {
               return (
                 <Link
-                  target="blank"
+                  target="_blank"
                   className="cursor-none"
                   href={link}
                   key={index}
