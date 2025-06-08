@@ -48,7 +48,7 @@ const AboutSection = async () => {
         </p>
       </div>
       <div className="grid place-content-center lg:flex lg:flex-row lg:justify-center gap-24 mt-12 px-6 md:pl-12 lg:pl-28">
-        <div className="space-y-6">
+        <div className="flex flex-col gap-6">
           <h2 className="font-secondary font-semibold text-2xl">
             Get to know me!
           </h2>
@@ -58,26 +58,13 @@ const AboutSection = async () => {
               <span className="font-bold hover:text-cyan-500 transition-colors duration-200">
                 Full Stack Developer
               </span>{" "}
-              with expertise in backend development using Node.js and frontend
-              development using React, Next.js, Tailwind CSS, Svelte, and
-              SvelteKit. I am committed to client satisfaction, focusing on
-              effective communication and collaboration to translate their
-              vision into functional and visually appealing web applications.
+              with expertise in using Node.js, Django, and FastAPI for backend development, and React, Next.js, Tailwind CSS, Svelte, and SvelteKit for frontend development. I am committed to client satisfaction, focusing on effective communication and collaboration to translate their vision into functional and visually appealing web applications.
             </p>
             <p className="max-w-lg font-light text-sm sm:text-base hover:text-slate-300 transition-colors duration-200">
-              I take pride in writing clean, efficient, and maintainable code
-              with attention to detail and a strong eye for design. What sets me
-              apart is my ability to thrive in fast-paced environments,
-              leveraging my problem-solving skills and creativity to overcome
-              challenges. I stay up to date with industry trends, using
-              cutting-edge technologies to create impactful web applications.
+              I take pride in writing clean, efficient, and maintainable code with attention to detail and a strong eye for design. What sets me apart is my ability to thrive in fast-paced environments, leveraging my problem-solving skills and creativity to overcome challenges. I stay up to date with industry trends, using cutting-edge technologies to create impactful web applications.
             </p>
             <p className="max-w-lg font-light text-sm sm:text-base hover:text-slate-300 transition-colors duration-200">
-              I am excited about collaborating on new projects, bringing ideas
-              to life, and creating exceptional web applications that make a
-              difference. Let&apos;s discuss how we can work together to achieve
-              your goals and create remarkable solutions. Feel free to reach out
-              and start the conversation.
+              I am excited about collaborating on new projects, bringing ideas to life, and creating exceptional web applications that make a difference. Let&apos;s discuss how we can work together to achieve your goals and create remarkable solutions. Feel free to reach out and start the conversation.
             </p>
           </div>
           <Link
