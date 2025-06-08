@@ -38,9 +38,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={` ${inter.className} transition-colors ease-linear bg-gradient-to-r from-[#122d4d] to-[#040227]`}
+        className={` ${inter.className} transition-colors ease-linear bg-gradient-to-r from-[#122d4d] to-[#040227] scroll-smooth`}
       >
-        <div className="relative glow-wrapper">
+        <div className="relative">
           <Navbar />
           {children}
           <Footer />

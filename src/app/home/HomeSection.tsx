@@ -34,66 +34,65 @@ const socials: Social[] = [
 
 const HomeSection = () => {
   return (
-    <main id="home" className="relative  pb-10 ">
-      <div className="flex flex-col items-center gap-8 md:gap-16 pt-24 mb-16 sm:pt-36 md:pt-44 md:ml-12 text-center">
-        <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8  ">
-          <span>Hey, </span>
-          <span>I&apos;m</span>{" "}
-          <span className="text-[#10d2ef] transition-colors duration-200">
-            Wubshet
-          </span>{" "}
-          <span className="text-[#10d2ef] transition-colors duration-200">
-            Zeleke
-          </span>
-        </h1>
-        <p className="font-third font-light max-w-3xl text-sm sm:text-base px-12 text-secondary hover:text-slate-300 transition-colors duration-200">
-          I am a skilled{" "}
-          <span className="font-bold text-slate-300 hover:text-[#10d2ef] transition-colors duration-200">
-            Full Stack Developer
-          </span>{" "}
-          with 3+ years of experience, specializing in robust web applications.
-          I am dedicated to delivering high-quality solutions tailored to client
-          needs, ensuring satisfaction through timely project delivery and
-          exceeding expectations.
-        </p>
-        <Link
-          target="blank"
-          href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
-          className="bg-[#3652f14d] hover:bg-[#10d1ef55] transition-colors duration-200 w-48 rounded-lg text-lg px-3 py-3 text-center text-white font-secondary"
-        >
-          Resume
-        </Link>
-        <div className="hidden md:block 2xl:hidden absolute left-0">
-          <ul className="w-14 flex flex-col gap-8 py-4 rounded-r-md shadow-black bg-[#5949e81a] text-[#45c7fbac] shadow-md items-center text-3xl ">
-            {socials.map(({ title, link, icon }: Social, index: number) => {
-              return (
-                <Link
-                  target="_blank"
-                  className="cursor-pointer"
-                  href={link}
-                  key={index}
-                  aria-label={`link to ${title}`}
-                >
-                  <li className="relative hover:scale-125 hover:text-[#FFFFFF]">
-                    <span>{icon}</span>
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
-        </div>
-        <Link
-          href="#about"
-          className=""
-          aria-label="Scroll down to About Section"
-        >
-          <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 hover:text-cyan-500 hover:border-cyan-500 transition-colors duration-200">
-            <span className="text-sm animate-bounce">
-              <HiOutlineChevronDoubleDown />
-            </span>
-          </p>
-        </Link>
+    <main
+      id="home"
+      className="relative text-white pb-28 pt-24 flex flex-col items-center justify-center"
+    >
+      <div className="rounded-full overflow-hidden w-32 h-32 mb-6">
+        <img
+          src="https://avatar.iran.liara.run/public/17"
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
       </div>
+
+      {/* Main Heading */}
+      <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold font-primary text-center mb-4">
+        Hi, I&apos;m <span className="text-cyan-400">Wubshet</span> 👋
+      </h1>
+
+      {/* Subheading */}
+      <p className="text-base md:text-xl lg:text-2xl text-center font-primary font-extralight mb-8 px-4">
+        Building digital products, brands, and experiences. <br />I specialize
+        in{" "}
+        <span className="">
+          Full Stack Development
+        </span>{" "}
+        and robust web applications.
+      </p>
+      <Link
+        href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
+        target="_blank"
+        className="bg-white text-black hover:bg-cyan-400 transition-colors duration-200 px-6 py-3 rounded-lg text-lg font-medium mb-8"
+      >
+        Resume
+      </Link>
+
+      {/* Social Links */}
+      <div className="flex gap-6 mt-8">
+        {socials.map(({ title, link, icon }, index) => (
+          <Link
+            key={index}
+            href={link}
+            target="_blank"
+            aria-label={`Link to ${title}`}
+            className="text-2xl hover:text-cyan-400 transition-colors duration-200"
+          >
+            {icon}
+          </Link>
+        ))}
+      </div>
+      <Link
+        href="#about"
+        className=""
+        aria-label="Scroll down to About Section"
+      >
+        <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 hover:text-cyan-500 hover:border-cyan-500 transition-colors duration-200">
+          <span className="text-sm animate-bounce">
+            <HiOutlineChevronDoubleDown />
+          </span>
+        </p>
+      </Link>
     </main>
   );
 };
