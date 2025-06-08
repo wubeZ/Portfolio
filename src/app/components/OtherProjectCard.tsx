@@ -17,20 +17,20 @@ const OtherProjectCard = ({
       <main className="w-72 xs:w-96 h-72 hover:sm:-translate-y-2 transition-all ease-linear">
         <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
           <div className="flex justify-between">
-            <p className="text-4xl">
+            <p className="text-2xl">
               <BsFolder />
             </p>
             <p className="flex gap-2 text-white text-2xl">
               {githubLink && (
                 <Link target="_blank" href={githubLink} aria-label="link to github repo">
-                  <span className="hover:text-cyan-600">
+                  <span className="hover:text-cyan-600 text-xl">
                     <FiGithub />
                   </span>
                 </Link>
               )}
               {siteLink && (
                 <Link target="_blank" href={siteLink} aria-label="link to site">
-                  <span className="hover:text-cyan-600">
+                  <span className="hover:text-cyan-600 text-xl">
                     <FiExternalLink />
                   </span>
                 </Link>

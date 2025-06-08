@@ -17,7 +17,7 @@ const socials: Social[] = [
   },
   {
     title: "Linkedin",
-    link: "https://www.linkedin.com/in/wubshet-zeleke-1a6aa71a8",
+    link: "https://www.linkedin.com/in/wubshet-zeleke",
     icon: <FaLinkedin />,
   },
   {
@@ -30,11 +30,6 @@ const socials: Social[] = [
     link: "https://www.twitter.com/wube_Z",
     icon: <FaXTwitter />,
   },
-  {
-    title: "Telegram",
-    link: "https://t.me/wube_z",
-    icon: <FaTelegram />,
-  },
 ];
 
 const HomeSection = () => {
@@ -42,17 +37,13 @@ const HomeSection = () => {
     <main id="home" className="relative  pb-10 ">
       <div className="flex flex-col items-center gap-8 md:gap-16 pt-24 mb-16 sm:pt-36 md:pt-44 md:ml-12 text-center">
         <h1 className="font-secondary font-bold text-4xl md:text-6xl px-8  ">
-          <span className="hover:text-[#10d2ef] transition-colors duration-200">
-            Hey,{" "}
-          </span>
-          <span className="hover:text-[#10d2ef] transition-colors duration-200">
-            I&apos;m
+          <span>Hey, </span>
+          <span>I&apos;m</span>{" "}
+          <span className="text-[#10d2ef] transition-colors duration-200">
+            Wubshet
           </span>{" "}
-          <span className="hover:text-[#10d2ef] transition-colors duration-200">
-            WUBSHET
-          </span>{" "}
-          <span className="hover:text-[#10d2ef] transition-colors duration-200">
-            ZELEKE
+          <span className="text-[#10d2ef] transition-colors duration-200">
+            Zeleke
           </span>
         </h1>
         <p className="font-third font-light max-w-3xl text-sm sm:text-base px-12 text-secondary hover:text-slate-300 transition-colors duration-200">
@@ -60,8 +51,8 @@ const HomeSection = () => {
           <span className="font-bold text-slate-300 hover:text-[#10d2ef] transition-colors duration-200">
             Full Stack Developer
           </span>{" "}
-          with 2 years of experience, specializing in robust web applications. I
-          am dedicated to delivering high-quality solutions tailored to client
+          with 3+ years of experience, specializing in robust web applications.
+          I am dedicated to delivering high-quality solutions tailored to client
           needs, ensuring satisfaction through timely project delivery and
           exceeding expectations.
         </p>
@@ -78,7 +69,7 @@ const HomeSection = () => {
               return (
                 <Link
                   target="_blank"
-                  className="cursor-none"
+                  className="cursor-pointer"
                   href={link}
                   key={index}
                   aria-label={`link to ${title}`}
@@ -93,7 +84,7 @@ const HomeSection = () => {
         </div>
         <Link
           href="#about"
-          className="cursor-none"
+          className=""
           aria-label="Scroll down to About Section"
         >
           <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 hover:text-cyan-500 hover:border-cyan-500 transition-colors duration-200">

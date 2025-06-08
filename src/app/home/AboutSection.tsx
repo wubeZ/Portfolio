@@ -9,6 +9,28 @@ interface Props {
   database: string[];
 }
 
+const SkillSection = ({
+  title,
+  skills,
+}: {
+  title: string;
+  skills: string[];
+}) => (
+  <div>
+    <h3 className="font-secondary text-secondary">{title}</h3>
+    <div className="flex flex-wrap gap-4 max-w-xl">
+      {skills.map((skill: string, index: number) => (
+        <div
+          key={index}
+          className="bg-[#3f80d428] text-blue-300 text-center text-xs sm:text-sm font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:outline hover:outline-cyan-500"
+        >
+          {skill}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const AboutSection = async () => {
   const { programmingLanguages, frontend, backend, database }: Props =
     await getProgLanguages();
@@ -25,8 +47,8 @@ const AboutSection = async () => {
           current skills
         </p>
       </div>
-      <div className="flex flex-col md:flex-row md:justify-center gap-24 mt-12  px-6 sm:pl-12 md:pl-28">
-        <div className="flex flex-col gap-6">
+      <div className="grid place-content-center lg:flex lg:flex-row lg:justify-center gap-24 mt-12 px-6 md:pl-12 lg:pl-28">
+        <div className="space-y-6">
           <h2 className="font-secondary font-semibold text-2xl">
             Get to know me!
           </h2>
@@ -37,10 +59,10 @@ const AboutSection = async () => {
                 Full Stack Developer
               </span>{" "}
               with expertise in backend development using Node.js and frontend
-              development using React, Next.js, and Tailwind CSS. I am committed
-              to client satisfaction, focusing on effective communication and
-              collaboration to translate their vision into functional and
-              visually appealing web applications.
+              development using React, Next.js, Tailwind CSS, Svelte, and
+              SvelteKit. I am committed to client satisfaction, focusing on
+              effective communication and collaboration to translate their
+              vision into functional and visually appealing web applications.
             </p>
             <p className="max-w-lg font-light text-sm sm:text-base hover:text-slate-300 transition-colors duration-200">
               I take pride in writing clean, efficient, and maintainable code
@@ -52,7 +74,7 @@ const AboutSection = async () => {
             </p>
             <p className="max-w-lg font-light text-sm sm:text-base hover:text-slate-300 transition-colors duration-200">
               I am excited about collaborating on new projects, bringing ideas
-              to life and creating exceptional web applications that make a
+              to life, and creating exceptional web applications that make a
               difference. Let&apos;s discuss how we can work together to achieve
               your goals and create remarkable solutions. Feel free to reach out
               and start the conversation.
@@ -65,71 +87,18 @@ const AboutSection = async () => {
             CONTACT
           </Link>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="space-y-2">
           <h2 className="font-secondary font-bold text-2xl pb-3">My Skills</h2>
-
-          <h3 className="font-secondary text-secondary ">
-            Programming Languages
-          </h3>
-          <div className="flex flex-wrap gap-4 max-w-xl">
-            {programmingLanguages &&
-              programmingLanguages.map((skill: string, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
-                  >
-                    {skill}
-                  </div>
-                );
-              })}
-          </div>
-          <h3 className="font-secondary text-secondary ">
-            Frontend Development
-          </h3>
-          <div className="flex flex-wrap gap-4 max-w-xl">
-            {frontend &&
-              frontend.map((skill: string, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
-                  >
-                    {skill}
-                  </div>
-                );
-              })}
-          </div>
-          <h3 className="font-secondary text-secondary ">
-            Backend Development
-          </h3>
-          <div className="flex flex-wrap gap-4 max-w-xl">
-            {backend &&
-              backend.map((skill: string, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
-                  >
-                    {skill}
-                  </div>
-                );
-              })}
-          </div>
-          <h3 className="font-secondary text-secondary ">Databases</h3>
-          <div className="flex flex-wrap gap-4 max-w-xl">
-            {database &&
-              database.map((skill: string, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-[#3f80d428] text-blue-300 text-center text-base font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:border hover:border-cyan-500 hover:outline-offset-8 hover:scale-110"
-                  >
-                    {skill}
-                  </div>
-                );
-              })}
-          </div>
+          <SkillSection
+            title="Programming Languages"
+            skills={programmingLanguages}
+          />
+          <SkillSection
+            title="Frontend Development"
+            skills={[...frontend, "Svelte", "SvelteKit"]}
+          />
+          <SkillSection title="Backend Development" skills={backend} />
+          <SkillSection title="Databases" skills={database} />
         </div>
       </div>
     </main>

@@ -10,29 +10,42 @@ import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [backToTopState, setbackToTopState] = useState<boolean>(false);
+  const [backToTopState, setbackToTopState] = useState(false);
   const wrapperRef = useRef(null);
 
-  useClickOutside(wrapperRef, () => {
-    setOpenMenu(false);
-  });
+  useClickOutside(wrapperRef, () => setOpenMenu(false));
 
-  const BackToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  const BackToTop = () => window.scrollTo(0, 0);
 
   const handleScroll = () => {
-    if (window.scrollY > 300) {
-      setbackToTopState(true);
-    } else {
-      setbackToTopState(false);
-    }
+    setbackToTopState(window.scrollY > 300);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, true);
-    return () => window.removeEventListener("scroll", handleScroll, true);
-  });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const menuItems = [
+    { href: "#home", label: "HOME" },
+    { href: "#about", label: "ABOUT" },
+    { href: "#project", label: "PROJECT" },
+    { href: "#contact", label: "CONTACT" },
+  ];
+
+  const renderMenuItems = (isMobile = false) =>
+    menuItems.map(({ href, label }) => (
+      <Link key={href} href={href}>
+        <li
+          className={`relative group border-slate-300 ${
+            isMobile ? "py-2" : ""
+          }`}
+        >
+          <span className="">{label}</span>
+          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+        </li>
+      </Link>
+    ));
 
   return (
     <main className="sticky z-40 top-0 text-white h-20 w-full flex shadow-lg">
@@ -50,63 +63,24 @@ const Navbar = () => {
         </Link>
         <p
           onClick={() => setOpenMenu(!openMenu)}
-          className="sm:hidden text-3xl"
+          className="sm:hidden text-3xl cursor-pointer"
         >
           {openMenu ? <AiOutlineClose /> : <BiMenuAltRight />}
         </p>
         <ul className="hidden sm:flex items-center gap-14 pr-12 md:pr-16 text-xs md:text-sm lg:text-base font-primary font-light">
-          <Link href="#home">
-            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-              HOME
-            </li>
-          </Link>
-          <Link href="#about">
-            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500   border-slate-300">
-              ABOUT
-            </li>
-          </Link>
-          <Link href="#project">
-            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-              PROJECT
-            </li>
-          </Link>
-          <Link href="#contact">
-            <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-              CONTACT
-            </li>
-          </Link>
+          {renderMenuItems()}
         </ul>
       </div>
       {openMenu && (
         <nav
-          className="flex sm:hidden absolute right-0 top-16 mr-4 bg-slate-900 py-2 w-40"
+          className="flex sm:hidden absolute right-0 top-16 mr-4 bg-[#151338] py-2 w-40"
           ref={wrapperRef}
         >
-          <ul className="flex flex-col gap-8 py-4 px-6 font-light font-third">
-            <Link href="#home">
-              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-                HOME
-              </li>
-            </Link>
-            <Link href="#about">
-              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-                ABOUT
-              </li>
-            </Link>
-            <Link href="#project">
-              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-                PROJECT
-              </li>
-            </Link>
-            <Link href="#contact">
-              <li className="hover:font-semibold hover:outline-offset-8 hover:text-cyan-500  border-slate-300">
-                CONTACT
-              </li>
-            </Link>
+          <ul className="flex flex-col gap-4 py-4 px-6 font-light">
+            {renderMenuItems(true)}
           </ul>
         </nav>
       )}
-
       <div
         onClick={BackToTop}
         className={`z-30 transition-all delay-50 ${

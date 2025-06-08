@@ -88,20 +88,6 @@ const ContactSection = () => {
         )}
       </div>
 
-      <div className="flex justify-center">
-        <ul className="flex gap-20 md:gap-32 py-4 items-center text-3xl sm:text-4xl md:text-5xl text-cyan-400">
-          {socials.map(({ title, link, icon }: Social, index: number) => {
-            return (
-              <Link target="_blank" href={link} key={index}>
-                <li className="hover:scale-125 cursor-pointer">
-                  <span>{icon}</span>
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
-      </div>
-
       <div className="mx-auto max-w-4xl mt-12 px-8 bg-[#2b394d4c]">
         <form className="flex flex-col gap-4 py-8" onSubmit={handleSubmit}>
           <label className="font-secondary" htmlFor="name">
