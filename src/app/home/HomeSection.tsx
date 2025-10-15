@@ -61,7 +61,7 @@ const HomeSection = () => {
         and robust web applications.
       </p>
       <Link
-        href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
+        href={`https://devon-git-dev-719-fix-white-label-solution.vercel.app/en/api/p2psniper/loans`}
         target="_blank"
         className="bg-white text-black hover:bg-cyan-400 transition-colors duration-200 px-6 py-3 rounded-lg text-lg font-medium mb-8"
       >
