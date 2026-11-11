@@ -1,36 +1,12 @@
 "use client";
 
 import React from "react";
-import { FaGithub } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import { FaLinkedin, FaTelegram } from "react-icons/fa";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { Social } from "@/lib/types";
+import { email, github, linkedin, twitter } from "@/lib/socials";
 import Link from "next/link";
 
-const socials: Social[] = [
-  {
-    title: "Email",
-    link: "mailto:wubezeleke@gmail.com",
-    icon: <MdEmail />,
-  },
-  {
-    title: "Linkedin",
-    link: "https://www.linkedin.com/in/wubshet-zeleke",
-    icon: <FaLinkedin />,
-  },
-  {
-    title: "Github",
-    link: "https://www.github.com/wubeZ",
-    icon: <FaGithub />,
-  },
-  {
-    title: "Twitter",
-    link: "https://www.twitter.com/wube_Z",
-    icon: <FaXTwitter />,
-  },
-];
+const socials: Social[] = [email, linkedin, github, twitter];
 
 const HomeSection = () => {
   return (

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wubshetzeleke.vercel.app"),
   title: "Wubshet Zeleke - Software Engineer",
   description:
     "Wubshet Zeleke is a full stack developer who specializes in robust web application.",
