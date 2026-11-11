@@ -1,15 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+@theme {
+  --font-primary: sans-serif;
+  --font-secondary: sans-serif;
+  --font-third: sans-serif;
+  --font-tech: monospace;
 
-@layer components {
-    .glass-effect {
-        background: rgba(2, 2, 34, 0.129);
-        box-shadow: 0 4px 2px -2px rgba(72, 72, 72, 0.1);
-        backdrop-filter: blur(10.8px);
-        -webkit-backdrop-filter: blur(10.8px);
-      }
+  --color-secondary: #a9a6b1;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* Tailwind v4 tints placeholders with the text color. Keep the v3 gray. */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+}
+
+@utility glass-effect {
+  background: rgba(2, 2, 34, 0.129);
+  box-shadow: 0 4px 2px -2px rgba(72, 72, 72, 0.1);
+  backdrop-filter: blur(10.8px);
+  -webkit-backdrop-filter: blur(10.8px);
 }
 
 input:-webkit-autofill,

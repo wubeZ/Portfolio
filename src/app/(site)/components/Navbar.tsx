@@ -5,13 +5,13 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineArrowUp } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
-import icon from "../../../public/wz-icon.png";
+import icon from "../../../../public/wz-icon.png";
 import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [backToTopState, setbackToTopState] = useState(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLElement>(null);
 
   useClickOutside(wrapperRef, () => setOpenMenu(false));
 
@@ -35,16 +35,15 @@ const Navbar = () => {
 
   const renderMenuItems = (isMobile = false) =>
     menuItems.map(({ href, label }) => (
-      <Link key={href} href={href}>
-        <li
-          className={`relative group border-slate-300 ${
-            isMobile ? "py-2" : ""
-          }`}
-        >
-          <span className="">{label}</span>
+      <li
+        key={href}
+        className={`relative group border-slate-300 ${isMobile ? "py-2" : ""}`}
+      >
+        <Link href={href}>
+          <span>{label}</span>
           <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
-        </li>
-      </Link>
+        </Link>
+      </li>
     ));
 
   return (

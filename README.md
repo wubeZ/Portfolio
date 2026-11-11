@@ -4,10 +4,12 @@ Source for [wubshetzeleke.vercel.app](https://wubshetzeleke.vercel.app). It's a 
 
 ## Stack
 
-- Next.js 13 (App Router), React 18 and TypeScript
-- Tailwind CSS
-- Sanity v3, with the Studio embedded at `/studio`
+- Next.js 16 (App Router), React 19 and TypeScript
+- Tailwind CSS 4
+- Sanity 6, with the Studio embedded at `/studio`
 - Nodemailer for the contact form
+
+Sanity 6 needs Node.js 22.12 or newer. Set the Vercel project's Node.js version to 22.x or later.
 
 ## Running locally
 
@@ -39,11 +41,12 @@ The site caches Sanity responses for 72 hours, so edits can take up to 72 hours 
 ## Project layout
 
 ```
-src/app/page.tsx              Page that stacks the four sections
-src/app/home/                 Home, About, Projects and Contact sections
-src/app/components/           Navbar, Footer and project cards
+src/app/(site)/               Public site, with its own root layout
+src/app/(site)/page.tsx       Page that stacks the four sections
+src/app/(site)/home/          Home, About, Projects and Contact sections
+src/app/(site)/components/    Navbar, Footer and project cards
+src/app/(studio)/studio/      Embedded Sanity Studio, with its own root layout
 src/app/api/emailSubmit/      POST endpoint for the contact form
-src/app/studio/               Embedded Sanity Studio
 src/sanity/                   Sanity client and GROQ queries
 src/schemas/                  Sanity document schemas
 src/lib/                      Shared types and social links

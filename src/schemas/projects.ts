@@ -9,13 +9,13 @@ const projects = {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "description",
       title: "Description",
       type: "string",
-      validation: (Rule: any) => Rule.required().min(40),
+      validation: (Rule) => Rule.required().min(40),
     }),
     {
       name: "githubLink",

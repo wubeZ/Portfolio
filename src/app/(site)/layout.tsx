@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={` ${inter.className} transition-colors ease-linear bg-gradient-to-r from-[#122d4d] to-[#040227] scroll-smooth`}
+        className={` ${inter.className} transition-colors ease-linear bg-linear-to-r from-[#122d4d] to-[#040227] scroll-smooth`}
       >
         <div className="relative">
           <Navbar />

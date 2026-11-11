@@ -1,5 +1,5 @@
 import React from 'react';
-import icon from "../../public/wz-icon.png";
+import icon from "../../../public/wz-icon.png";
 import Image from 'next/image';
 
 const Loading = () => {
