@@ -13,14 +13,14 @@ const OtherProjectCard = ({
   techUsed,
 }: Project) => {
   return (
-    <Link target="_blank" href={siteLink || githubLink || ""} className="cursor-pointer hover:text-[#aef3bfda]" aria-label="link to site or github repo">
+    <div className="group relative cursor-pointer hover:text-[#aef3bfda]">
       <main className="w-72 xs:w-96 h-72 hover:sm:-translate-y-2 transition-all ease-linear">
         <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
           <div className="flex justify-between">
             <p className="text-2xl">
               <BsFolder />
             </p>
-            <p className="flex gap-2 text-white text-2xl">
+            <p className="relative z-10 flex gap-2 text-white text-2xl">
               {githubLink && (
                 <Link target="_blank" href={githubLink} aria-label="link to github repo">
                   <span className="hover:text-cyan-600 text-xl">
@@ -37,7 +37,16 @@ const OtherProjectCard = ({
               )}
             </p>
           </div>
-          <h2 className="text-lg font-bold">{title}</h2>
+          <h2 className="text-lg font-bold">
+            {/* The ::after overlay makes the whole card clickable without nesting links. */}
+            <Link
+              target="_blank"
+              href={siteLink || githubLink || ""}
+              className="after:absolute after:inset-0"
+            >
+              {title}
+            </Link>
+          </h2>
           <p className="text-sm text-secondary max-w-md h-24 line-clamp-5 hover:text-slate-300 transition-colors duration-200">
             {description}
           </p>
@@ -52,7 +61,7 @@ const OtherProjectCard = ({
           </div>
         </div>
       </main>
-    </Link>
+    </div>
   );
 };
 
