@@ -5,7 +5,7 @@ import ProjectSection from "./home/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="transition-all ease-linear bg-gradient-to-r from-[#122d4d] to-[#040227] text-white">
+    <div className="transition-all ease-linear bg-linear-to-r from-[#122d4d] to-[#040227] text-white">
       <HomeSection />
       <AboutSection />
       <ProjectSection />

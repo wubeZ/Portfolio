@@ -22,7 +22,7 @@ const SkillSection = ({
       {skills.map((skill: string, index: number) => (
         <div
           key={index}
-          className="bg-[#3f80d428] text-blue-300 text-center text-xs sm:text-sm font-tech px-3 py-2 rounded-sm shadow-sm transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:outline hover:outline-cyan-500"
+          className="bg-[#3f80d428] text-blue-300 text-center text-xs sm:text-sm font-tech px-3 py-2 rounded-xs shadow-xs transition-colors duration-200 hover:text-cyan-400 hover:shadow-md hover:font-bold hover:outline-solid hover:outline-cyan-500"
         >
           {skill}
         </div>
