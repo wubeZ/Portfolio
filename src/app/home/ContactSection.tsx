@@ -1,9 +1,5 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
-import { FaTelegram, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { Social } from "@/lib/types";
 
 const ContactSection = () => {
   const [name, setName] = useState<string>("");
@@ -13,24 +9,6 @@ const ContactSection = () => {
   const [isSuccess, setSuccess] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
 
-  const socials: Social[] = [
-    {
-      title: "Email",
-      link: "mailto:wubezeleke@gmail.com",
-      icon: <MdEmail />,
-    },
-    {
-      title: "Linkedin",
-      link: "https://www.linkedin.com/in/wubshet-zeleke-1a6aa71a8",
-      icon: <FaLinkedin />,
-    },
-    {
-      title: "Telegram",
-      link: "https://t.me/wube_z",
-      icon: <FaTelegram />,
-    },
-  ];
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const Data: { name: string; email: string; message: string } = {
@@ -39,24 +17,28 @@ const ContactSection = () => {
       message,
     };
     setSending(true);
-    const response = await fetch("/api/emailSubmit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(Data),
-    });
+    let sent = false;
+    try {
+      const response = await fetch("/api/emailSubmit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Data),
+      });
+      sent = response.ok;
+    } catch {
+      sent = false;
+    }
 
-    // Handle response
-    const data = await response.json();
-    if (data.message === "OK") {
+    if (sent) {
       setSuccess(true);
+      setName("");
+      setEmail("");
+      setMessage("");
     } else {
       setError(true);
     }
-    setName("");
-    setEmail("");
-    setMessage("");
     setSending(false);
     setTimeout(() => {
       setSuccess(false);
@@ -136,6 +118,7 @@ const ContactSection = () => {
           ></textarea>
           <button
             type="submit"
+            disabled={isSending}
             className={` bg-[#2f41a8a5] ${
               isSending ? "opacity-50 cursor-not-allowed" : ""
             }  hover:bg-[#10d1ef55] transition-colors duration-200 sm:mx-auto text-white font-secondary rounded-md px-4 sm:px-12 py-2`}
