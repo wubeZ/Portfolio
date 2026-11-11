@@ -6,28 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@sanity/vision": "^3.16.7",
-    "next": "13.5.2",
-    "next-sanity": "^5.5.4",
+    "@sanity/client": "^8.15.1",
+    "@sanity/vision": "^6.23.0",
+    "next": "^16.4.6",
+    "next-sanity": "^13.4.0",
     "nodemailer": "^6.9.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-icons": "^4.11.0",
-    "sanity": "^3.16.7"
+    "sanity": "^6.23.0",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
-    "@types/node": "20.6.3",
+    "@types/node": "^22",
     "@types/nodemailer": "^6.4.11",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "autoprefixer": "10.4.16",
-    "eslint": "8.49.0",
-    "eslint-config-next": "13.5.2",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
     "postcss": "8.4.30",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
+    "typescript": "~6.0.3"
+  },
+  "engines": {
+    "node": ">=22.12"
   }
 }

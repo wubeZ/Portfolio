@@ -5,13 +5,13 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineArrowUp } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
-import icon from "../../../public/wz-icon.png";
+import icon from "../../../../public/wz-icon.png";
 import { useClickOutside } from "../hooks/useClickOutside";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [backToTopState, setbackToTopState] = useState(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLElement>(null);
 
   useClickOutside(wrapperRef, () => setOpenMenu(false));
 
