@@ -33,9 +33,16 @@ export const metadata: Metadata = {
     "best developer near me",
     "best fullstack developer in Ethiopia",
   ],
+  // The image comes from opengraph-image.tsx next to this file.
   openGraph: {
-    images: "https://wubshetzeleke.vercel.app/wz-icon.png",
+    type: "website",
+    url: "/",
+    siteName: "Wubshet Zeleke",
+    title: "Wubshet Zeleke - Software Engineer",
+    description:
+      "Full-stack developer based in Ethiopia, building robust web applications.",
   },
+  twitter: { card: "summary_large_image", creator: "@wube_Z" },
 };
 
 export default function RootLayout({
