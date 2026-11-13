@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { email, github, linkedin, twitter } from "@/lib/socials";
+import { email, github, linkedin, RESUME_URL, twitter } from "@/lib/socials";
 import { countProjectsByTech, techKey, techLabel } from "@/lib/tech";
 import { getProgLanguages, getProjects } from "@/sanity/sanity.query";
 import SocialLinks from "../components/SocialLinks";
 import StackDiagram, { StackItem } from "../tech/StackDiagram";
-
-const RESUME_URL =
-  "https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing";
 
 const HomeSection = async () => {
   const [skills, projects] = await Promise.all([

@@ -8,6 +8,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import icon from "../../../../public/wz-icon.png";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { useClickOutside } from "../hooks/useClickOutside";
+import { CommandMenuButton } from "./CommandMenu";
 import ThemeToggle from "../theme/ThemeToggle";
 
 const menuItems = [
@@ -108,6 +109,7 @@ const Navbar = () => {
                 </ul>
               )}
             </nav>
+            <CommandMenuButton />
             <ThemeToggle />
           </div>
         </div>

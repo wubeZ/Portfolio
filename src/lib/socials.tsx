@@ -3,6 +3,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Social } from "./types";
 
+export const RESUME_URL =
+  "https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing";
+
 export const email: Social = {
   title: "Email",
   link: "mailto:wubezeleke@gmail.com",

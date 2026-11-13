@@ -8,7 +8,7 @@ import { countProjectsByTech } from "@/lib/tech";
 import { getProjects } from "@/sanity/sanity.query";
 
 const ProjectSection = async () => {
-  const projects = (await getProjects()).reverse();
+  const projects = [...(await getProjects())].reverse();
 
   return (
     <Section

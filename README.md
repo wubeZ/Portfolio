@@ -34,7 +34,7 @@ Without them, the form returns an error and the rest of the site still works.
 Go to `/studio` and sign in with the Sanity account that owns project `vuhehstv`. There are two document types:
 
 - `projects`: title, description, links, tech list, background image, and a `featured` flag. Featured projects show as large cards and the rest show under "Other Noteworthy Projects".
-- `progLanguages`: the skill lists shown in the About section. Only the first document is used.
+- `progLanguages`: the skill lists shown in the hero stack and the share image. Only the first document is used.
 
 The site caches Sanity responses for 72 hours, so edits can take up to 72 hours to appear. Redeploy on Vercel to show them sooner.
 
@@ -49,7 +49,8 @@ src/app/(studio)/studio/      Embedded Sanity Studio, with its own root layout
 src/app/api/emailSubmit/      POST endpoint for the contact form
 src/sanity/                   Sanity client and GROQ queries
 src/schemas/                  Sanity document schemas
-src/lib/                      Shared types and social links
+src/lib/                      Shared types, social links and tech name helpers
+assets/fonts/                 Font files for the generated share image, with their licenses
 ```
 
 ## Scripts
