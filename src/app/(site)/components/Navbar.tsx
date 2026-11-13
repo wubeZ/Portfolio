@@ -7,6 +7,7 @@ import { AiOutlineArrowUp, AiOutlineClose } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import icon from "../../../../public/wz-icon.png";
 import { useClickOutside } from "../hooks/useClickOutside";
+import ThemeToggle from "../theme/ThemeToggle";
 
 const menuItems = [
   { href: "#about", label: "About" },
@@ -31,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-line bg-night/85 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-line bg-canvas/85 backdrop-blur-md">
         <div
           ref={wrapperRef}
           className="container-page flex h-16 items-center justify-between"
@@ -46,50 +47,53 @@ const Navbar = () => {
             />
           </Link>
 
-          <nav aria-label="Main">
-            <ul className="hidden items-center gap-10 text-[0.9375rem] text-mist sm:flex">
-              {menuItems.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="transition-colors hover:text-paper"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              type="button"
-              onClick={() => setOpenMenu((open) => !open)}
-              aria-expanded={openMenu}
-              aria-controls="mobile-menu"
-              aria-label={openMenu ? "Close menu" : "Open menu"}
-              className="-mr-2 p-2 text-2xl text-paper sm:hidden"
-            >
-              {openMenu ? <AiOutlineClose /> : <BiMenuAltRight />}
-            </button>
-
-            {openMenu && (
-              <ul
-                id="mobile-menu"
-                className="absolute inset-x-0 top-16 flex flex-col border-b border-line bg-night px-6 py-2 sm:hidden"
-              >
+          <div className="flex items-center gap-1 sm:gap-6">
+            <nav aria-label="Main" className="order-last sm:order-none">
+              <ul className="hidden items-center gap-10 text-[0.9375rem] text-muted sm:flex">
                 {menuItems.map(({ href, label }) => (
                   <li key={href}>
                     <Link
                       href={href}
-                      onClick={closeMenu}
-                      className="block py-3 text-lg text-paper"
+                      className="transition-colors hover:text-ink"
                     >
                       {label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            )}
-          </nav>
+
+              <button
+                type="button"
+                onClick={() => setOpenMenu((open) => !open)}
+                aria-expanded={openMenu}
+                aria-controls="mobile-menu"
+                aria-label={openMenu ? "Close menu" : "Open menu"}
+                className="-mr-2 p-2 text-2xl text-ink sm:hidden"
+              >
+                {openMenu ? <AiOutlineClose /> : <BiMenuAltRight />}
+              </button>
+
+              {openMenu && (
+                <ul
+                  id="mobile-menu"
+                  className="absolute inset-x-0 top-16 flex flex-col border-b border-line bg-canvas px-6 py-2 sm:hidden"
+                >
+                  {menuItems.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        onClick={closeMenu}
+                        className="block py-3 text-lg text-ink"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
@@ -99,7 +103,7 @@ const Navbar = () => {
         onClick={() => window.scrollTo({ top: 0 })}
         aria-label="Back to top"
         tabIndex={showBackToTop ? 0 : -1}
-        className={`fixed bottom-6 right-6 rounded-full border border-line bg-harbor p-3 text-xl text-paper transition-opacity hover:text-signal ${
+        className={`fixed bottom-6 right-6 rounded-full border border-line bg-surface p-3 text-xl text-ink transition-opacity hover:text-accent ${
           showBackToTop ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >

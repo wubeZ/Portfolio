@@ -3,7 +3,7 @@ import icon from "../../../public/wz-icon.png";
 
 const Loading = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-night">
+    <div className="flex min-h-screen items-center justify-center bg-canvas">
       <Image
         src={icon}
         width={80}

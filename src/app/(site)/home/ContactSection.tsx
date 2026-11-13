@@ -8,7 +8,7 @@ import SocialLinks from "../components/SocialLinks";
 type Status = "idle" | "sending" | "sent" | "failed";
 
 const fieldClass =
-  "mt-2 w-full rounded-md border border-line bg-harbor px-4 py-3 text-paper transition-colors focus:border-signal focus:outline-none";
+  "mt-2 w-full rounded-md border border-line bg-surface px-4 py-3 text-ink transition-colors focus:border-accent focus:outline-none";
 
 const ContactSection = () => {
   const [name, setName] = useState("");
@@ -45,13 +45,13 @@ const ContactSection = () => {
     <Section id="contact" title="Contact">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
         <div>
-          <p className="max-w-[40ch] text-lg leading-relaxed text-mist">
+          <p className="max-w-[40ch] text-lg leading-relaxed text-muted">
             Have a project or a role in mind? Send a message and I&apos;ll
             reply by email.
           </p>
           <a
             href={emailSocial.link}
-            className="mt-6 inline-block text-lg font-semibold text-signal underline-offset-4 hover:underline"
+            className="mt-6 inline-block text-lg font-semibold text-accent underline-offset-4 hover:underline"
           >
             wubezeleke@gmail.com
           </a>
@@ -109,18 +109,18 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="rounded-md bg-signal px-6 py-3 font-semibold text-night transition-colors hover:bg-paper disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-md bg-accent px-6 py-3 font-semibold text-canvas transition-colors hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === "sending" ? "Sending…" : "Send message"}
             </button>
             <p role="status" className="text-sm">
               {status === "sent" && (
-                <span className="text-signal">
+                <span className="text-accent">
                   Message sent. I&apos;ll reply by email.
                 </span>
               )}
               {status === "failed" && (
-                <span className="text-[#ff9b9b]">
+                <span className="text-danger">
                   The message didn&apos;t send. Try again, or email
                   wubezeleke@gmail.com directly.
                 </span>

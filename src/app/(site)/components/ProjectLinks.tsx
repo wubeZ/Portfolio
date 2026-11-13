@@ -17,7 +17,7 @@ export default function ProjectLinks({ title, githubLink, siteLink, className = 
           href={siteLink}
           target="_blank"
           aria-label={`${title} live site`}
-          className="inline-flex items-center gap-1.5 text-paper transition-colors hover:text-signal"
+          className="inline-flex items-center gap-1.5 text-ink transition-colors hover:text-accent"
         >
           <FiExternalLink aria-hidden />
           Live site
@@ -28,7 +28,7 @@ export default function ProjectLinks({ title, githubLink, siteLink, className = 
           href={githubLink}
           target="_blank"
           aria-label={`${title} source code on GitHub`}
-          className="inline-flex items-center gap-1.5 text-paper transition-colors hover:text-signal"
+          className="inline-flex items-center gap-1.5 text-ink transition-colors hover:text-accent"
         >
           <FiGithub aria-hidden />
           Code

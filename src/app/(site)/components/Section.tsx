@@ -21,7 +21,7 @@ export default function Section({ id, title, intro, children }: Props) {
       >
         {title}
       </h2>
-      {intro && <p className="mt-3 max-w-[60ch] text-mist">{intro}</p>}
+      {intro && <p className="mt-3 max-w-[60ch] text-muted">{intro}</p>}
       <div className="mt-12">{children}</div>
     </section>
   );

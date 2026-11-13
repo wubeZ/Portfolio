@@ -20,7 +20,7 @@ const HomeSection = () => {
       <p className="mt-8 text-xl font-medium sm:text-2xl">
         Full-stack developer based in Ethiopia
       </p>
-      <p className="mt-3 max-w-[52ch] text-lg leading-relaxed text-mist">
+      <p className="mt-3 max-w-[52ch] text-lg leading-relaxed text-muted">
         I build digital products, brands and experiences, with a focus on
         robust web applications.
       </p>
@@ -29,14 +29,14 @@ const HomeSection = () => {
         <div className="flex gap-3">
           <Link
             href="#projects"
-            className="rounded-md bg-signal px-5 py-3 font-semibold text-night transition-colors hover:bg-paper"
+            className="rounded-md bg-accent px-5 py-3 font-semibold text-canvas transition-colors hover:bg-ink"
           >
             View projects
           </Link>
           <Link
             href={RESUME_URL}
             target="_blank"
-            className="rounded-md border border-line px-5 py-3 font-semibold transition-colors hover:border-paper"
+            className="rounded-md border border-line px-5 py-3 font-semibold transition-colors hover:border-ink"
           >
             Resume
           </Link>

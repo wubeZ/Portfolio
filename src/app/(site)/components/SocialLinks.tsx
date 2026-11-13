@@ -15,7 +15,7 @@ export default function SocialLinks({ socials, size = "md" }: Props) {
             href={link}
             target={link.startsWith("mailto:") ? undefined : "_blank"}
             aria-label={title}
-            className="block text-mist transition-colors hover:text-signal"
+            className="block text-muted transition-colors hover:text-accent"
           >
             {icon}
           </Link>

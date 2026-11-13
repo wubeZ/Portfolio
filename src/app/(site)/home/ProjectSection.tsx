@@ -37,7 +37,7 @@ const ProjectSection = async () => {
         <Link
           href="https://github.com/wubeZ"
           target="_blank"
-          className="mt-10 inline-flex items-center gap-2 font-semibold text-signal underline-offset-4 hover:underline"
+          className="mt-10 inline-flex items-center gap-2 font-semibold text-accent underline-offset-4 hover:underline"
         >
           <FiGithub aria-hidden />
           More on GitHub

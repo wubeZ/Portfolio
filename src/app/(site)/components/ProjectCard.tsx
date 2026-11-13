@@ -31,7 +31,7 @@ const ProjectCard = ({
             target="_blank"
             tabIndex={-1}
             aria-hidden
-            className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-line bg-harbor"
+            className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-line bg-surface"
           >
             <Image
               src={backgroundImage.image}
@@ -50,7 +50,7 @@ const ProjectCard = ({
             <Link
               href={href}
               target="_blank"
-              className="transition-colors hover:text-signal"
+              className="transition-colors hover:text-accent"
             >
               {title}
             </Link>
@@ -58,7 +58,7 @@ const ProjectCard = ({
             title
           )}
         </h3>
-        <p className="mt-4 max-w-[48ch] leading-relaxed text-mist">
+        <p className="mt-4 max-w-[48ch] leading-relaxed text-muted">
           {description}
         </p>
         <TechList items={techUsed} className="mt-5" />

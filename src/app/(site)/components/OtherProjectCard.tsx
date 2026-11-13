@@ -13,7 +13,7 @@ const OtherProjectCard = ({
   const href = siteLink || githubLink;
 
   return (
-    <article className="relative flex w-full flex-col rounded-lg border border-line bg-harbor p-6 transition-colors hover:border-mist/60">
+    <article className="relative flex w-full flex-col rounded-lg border border-line bg-surface p-6 transition-colors hover:border-muted/60">
       <h4 className="text-lg font-semibold">
         {href ? (
           // The ::after overlay makes the whole card clickable without nesting links.
@@ -24,7 +24,7 @@ const OtherProjectCard = ({
           title
         )}
       </h4>
-      <p className="mt-3 line-clamp-4 text-[0.9375rem] leading-relaxed text-mist">
+      <p className="mt-3 line-clamp-4 text-[0.9375rem] leading-relaxed text-muted">
         {description}
       </p>
       <div className="mt-auto pt-6">

@@ -5,7 +5,7 @@ import TechList from "../components/TechList";
 
 const SkillGroup = ({ title, skills }: { title: string; skills: string[] }) => (
   <div>
-    <h4 className="text-sm font-medium text-mist">{title}</h4>
+    <h4 className="text-sm font-medium text-muted">{title}</h4>
     <TechList items={skills} variant="tag" className="mt-3" />
   </div>
 );
@@ -17,10 +17,10 @@ const AboutSection = async () => {
   return (
     <Section id="about" title="About">
       <div className="grid gap-16 lg:grid-cols-[1.25fr_1fr] lg:gap-20">
-        <div className="max-w-[62ch] space-y-5 text-[1.0625rem] leading-relaxed text-mist">
+        <div className="max-w-[62ch] space-y-5 text-[1.0625rem] leading-relaxed text-muted">
           <p>
             I am a dedicated{" "}
-            <strong className="font-semibold text-paper">
+            <strong className="font-semibold text-ink">
               Full Stack Developer
             </strong>{" "}
             with expertise in using Node.js, Django, and FastAPI for backend

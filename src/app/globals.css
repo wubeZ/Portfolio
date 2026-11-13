@@ -2,25 +2,68 @@
 
 /*
   Palette. Components use these through the Tailwind colors below
-  (bg-night, text-mist, border-line, ...), so a light theme only has to
-  redefine the variables.
+  (bg-canvas, text-muted, border-line, ...), so each theme only redefines
+  the variables.
+
+  Dark is the default. Light applies when the visitor picked it
+  (data-theme="light", set before paint by the script in the site layout)
+  or when the system prefers light and the visitor hasn't picked dark.
 */
 :root {
-  --night: #06102a;
-  --harbor: #0e2140;
+  color-scheme: dark;
+  --canvas: #06102a;
+  --surface: #0e2140;
   --line: #1d3558;
-  --paper: #eaf1fa;
-  --mist: #93a3bc;
-  --signal: #2cd4ea;
+  --ink: #eaf1fa;
+  --muted: #93a3bc;
+  --accent: #2cd4ea;
+  --danger: #ff9b9b;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #f4f7fb;
+  --surface: #ffffff;
+  --line: #d3dce8;
+  --ink: #0a1a33;
+  --muted: #4b5c78;
+  --accent: #0a7285;
+  --danger: #b42318;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --canvas: #f4f7fb;
+    --surface: #ffffff;
+    --line: #d3dce8;
+    --ink: #0a1a33;
+    --muted: #4b5c78;
+    --accent: #0a7285;
+    --danger: #b42318;
+  }
+}
+
+/* light: variant, matching the same two cases as the palette above. */
+@custom-variant light {
+  &:where([data-theme="light"], [data-theme="light"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: light) {
+    &:where(:root:not([data-theme="dark"]), :root:not([data-theme="dark"]) *) {
+      @slot;
+    }
+  }
 }
 
 @theme inline {
-  --color-night: var(--night);
-  --color-harbor: var(--harbor);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
   --color-line: var(--line);
-  --color-paper: var(--paper);
-  --color-mist: var(--mist);
-  --color-signal: var(--signal);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
@@ -43,12 +86,12 @@
 
   input::placeholder,
   textarea::placeholder {
-    color: var(--mist);
+    color: var(--muted);
     opacity: 0.6;
   }
 
   :focus-visible {
-    outline: 2px solid var(--signal);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -81,6 +124,6 @@
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-  -webkit-text-fill-color: var(--paper);
+  -webkit-text-fill-color: var(--ink);
   transition: background-color 600000s 0s, color 600000s 0s;
 }

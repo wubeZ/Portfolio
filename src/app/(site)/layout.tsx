@@ -4,6 +4,7 @@ import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { themeInitScript } from "./theme/theme";
 
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -43,11 +44,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
-      <body className="bg-night text-paper font-sans antialiased">
+    // The init script sets data-theme on <html> before hydration.
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="bg-canvas text-ink font-sans antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-signal focus:px-4 focus:py-2 focus:text-night"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-canvas"
         >
           Skip to content
         </a>
