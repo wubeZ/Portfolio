@@ -67,6 +67,16 @@
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Hero stack: each slab settles into place once, on page load. */
+  --animate-slab-in: slab-in 700ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+
+  @keyframes slab-in {
+    from {
+      opacity: 0;
+      transform: translateY(-14px);
+    }
+  }
 }
 
 @layer base {

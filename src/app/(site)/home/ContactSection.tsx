@@ -46,8 +46,8 @@ const ContactSection = () => {
       <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
         <div>
           <p className="max-w-[40ch] text-lg leading-relaxed text-muted">
-            Have a project or a role in mind? Send a message and I&apos;ll
-            reply by email.
+            Have a project or a role in mind? Send a message and I&apos;ll reply
+            by email.
           </p>
           <a
             href={emailSocial.link}
