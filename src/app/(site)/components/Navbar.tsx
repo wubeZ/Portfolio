@@ -2,93 +2,110 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineClose, AiOutlineArrowUp } from "react-icons/ai";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { AiOutlineArrowUp, AiOutlineClose } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import icon from "../../../../public/wz-icon.png";
 import { useClickOutside } from "../hooks/useClickOutside";
 
+const menuItems = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [backToTopState, setbackToTopState] = useState(false);
-  const wrapperRef = useRef<HTMLElement>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside(wrapperRef, () => setOpenMenu(false));
-
-  const BackToTop = () => window.scrollTo(0, 0);
-
-  const handleScroll = () => {
-    setbackToTopState(window.scrollY > 300);
-  };
+  const closeMenu = useCallback(() => setOpenMenu(false), []);
+  useClickOutside(wrapperRef, closeMenu);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setShowBackToTop(window.scrollY > 600);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    { href: "#home", label: "HOME" },
-    { href: "#about", label: "ABOUT" },
-    { href: "#project", label: "PROJECT" },
-    { href: "#contact", label: "CONTACT" },
-  ];
-
-  const renderMenuItems = (isMobile = false) =>
-    menuItems.map(({ href, label }) => (
-      <li
-        key={href}
-        className={`relative group border-slate-300 ${isMobile ? "py-2" : ""}`}
-      >
-        <Link href={href}>
-          <span>{label}</span>
-          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
-        </Link>
-      </li>
-    ));
-
   return (
-    <main className="sticky z-40 top-0 text-white h-20 w-full flex shadow-lg">
-      <div className="flex justify-between items-center px-4 w-full glass-effect">
-        <Link href="#home">
-          <h1 className="text-xl font-third font-bold cursor-pointer hover:text-teal-300 hover:scale-105 w-8 md:w-10 h-8 md:h-10 ml-0 sm:ml-8">
+    <>
+      <header className="sticky top-0 z-40 border-b border-line bg-night/85 backdrop-blur-md">
+        <div
+          ref={wrapperRef}
+          className="container-page flex h-16 items-center justify-between"
+        >
+          <Link href="#main" aria-label="Wubshet Zeleke, back to top">
             <Image
               src={icon}
-              width={50}
-              height={50}
-              alt="Wubshet Zeleke"
-              className="object-cover"
+              width={36}
+              height={36}
+              alt=""
+              className="rounded"
             />
-          </h1>
-        </Link>
-        <p
-          onClick={() => setOpenMenu(!openMenu)}
-          className="sm:hidden text-3xl cursor-pointer"
-        >
-          {openMenu ? <AiOutlineClose /> : <BiMenuAltRight />}
-        </p>
-        <ul className="hidden sm:flex items-center gap-14 pr-12 md:pr-16 text-xs md:text-sm lg:text-base font-primary font-light">
-          {renderMenuItems()}
-        </ul>
-      </div>
-      {openMenu && (
-        <nav
-          className="flex sm:hidden absolute right-0 top-16 mr-4 bg-[#151338] py-2 w-40"
-          ref={wrapperRef}
-        >
-          <ul className="flex flex-col gap-4 py-4 px-6 font-light">
-            {renderMenuItems(true)}
-          </ul>
-        </nav>
-      )}
-      <div
-        onClick={BackToTop}
-        className={`z-30 transition-all delay-50 ${
-          backToTopState ? "scale-1" : "scale-0"
-        } fixed bottom-10 right-10 rounded-full text-white bg-[#2b2b54] text-2xl p-4 font-bold cursor-pointer hover:scale-110 shadow-lg shadow-black/30`}
+          </Link>
+
+          <nav aria-label="Main">
+            <ul className="hidden items-center gap-10 text-[0.9375rem] text-mist sm:flex">
+              {menuItems.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="transition-colors hover:text-paper"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              type="button"
+              onClick={() => setOpenMenu((open) => !open)}
+              aria-expanded={openMenu}
+              aria-controls="mobile-menu"
+              aria-label={openMenu ? "Close menu" : "Open menu"}
+              className="-mr-2 p-2 text-2xl text-paper sm:hidden"
+            >
+              {openMenu ? <AiOutlineClose /> : <BiMenuAltRight />}
+            </button>
+
+            {openMenu && (
+              <ul
+                id="mobile-menu"
+                className="absolute inset-x-0 top-16 flex flex-col border-b border-line bg-night px-6 py-2 sm:hidden"
+              >
+                {menuItems.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={closeMenu}
+                      className="block py-3 text-lg text-paper"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </nav>
+        </div>
+      </header>
+
+      {/* Outside the header: its backdrop blur would make it the containing block for fixed children. */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0 })}
+        aria-label="Back to top"
+        tabIndex={showBackToTop ? 0 : -1}
+        className={`fixed bottom-6 right-6 rounded-full border border-line bg-harbor p-3 text-xl text-paper transition-opacity hover:text-signal ${
+          showBackToTop ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
       >
         <AiOutlineArrowUp />
-      </div>
-    </main>
+      </button>
+    </>
   );
 };
 

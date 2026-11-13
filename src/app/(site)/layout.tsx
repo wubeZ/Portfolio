@@ -1,11 +1,20 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-schibsted",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wubshetzeleke.vercel.app"),
@@ -34,18 +43,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body
-        className={` ${inter.className} transition-colors ease-linear bg-linear-to-r from-[#122d4d] to-[#040227] scroll-smooth`}
-      >
-        <div className="relative">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="bg-night text-paper font-sans antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-signal focus:px-4 focus:py-2 focus:text-night"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );

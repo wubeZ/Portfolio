@@ -1,49 +1,86 @@
-@import 'tailwindcss';
-
-@theme {
-  --font-primary: sans-serif;
-  --font-secondary: sans-serif;
-  --font-third: sans-serif;
-  --font-tech: monospace;
-
-  --color-secondary: #a9a6b1;
-}
+@import "tailwindcss";
 
 /*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
+  Palette. Components use these through the Tailwind colors below
+  (bg-night, text-mist, border-line, ...), so a light theme only has to
+  redefine the variables.
 */
+:root {
+  --night: #06102a;
+  --harbor: #0e2140;
+  --line: #1d3558;
+  --paper: #eaf1fa;
+  --mist: #93a3bc;
+  --signal: #2cd4ea;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-harbor: var(--harbor);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-signal: var(--signal);
+
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keep section headings clear of the sticky navbar. */
+    scroll-padding-top: 5rem;
+  }
+
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--line);
   }
 
-  /* Tailwind v4 tints placeholders with the text color. Keep the v3 gray. */
   input::placeholder,
   textarea::placeholder {
-    color: var(--color-gray-400);
+    color: var(--mist);
+    opacity: 0.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
   }
 }
 
-@utility glass-effect {
-  background: rgba(2, 2, 34, 0.129);
-  box-shadow: 0 4px 2px -2px rgba(72, 72, 72, 0.1);
-  backdrop-filter: blur(10.8px);
-  -webkit-backdrop-filter: blur(10.8px);
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1080px;
+  padding-inline: 1.5rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
 }
 
+/* Stop browser autofill from painting inputs yellow or white. */
 input:-webkit-autofill,
-input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
-}
-input[data-autocompleted] {
-    background-color: transparent !important;
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--paper);
+  transition: background-color 600000s 0s, color 600000s 0s;
 }

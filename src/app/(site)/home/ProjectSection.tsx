@@ -1,51 +1,49 @@
-import React from "react";
 import Link from "next/link";
+import { FiGithub } from "react-icons/fi";
 
 import ProjectCard from "../components/ProjectCard";
 import OtherProjectCard from "../components/OtherProjectCard";
+import Section from "../components/Section";
 
 import { Project } from "@/lib/types";
 import { getProjects } from "@/sanity/sanity.query";
 
-
 const ProjectSection = async () => {
-  const projects: Project[] = await getProjects();
-  const newProject = projects.reverse();
-  const featuredProjects = newProject.filter((proj) => proj.featured === true)
-  const otherProjects = newProject.filter((proj)=> proj.featured !== true)
+  const projects: Project[] = (await getProjects()).reverse();
+  const featuredProjects = projects.filter((proj) => proj.featured === true);
+  const otherProjects = projects.filter((proj) => proj.featured !== true);
 
   return (
-    <main id="project" className="min-h-screen mt-10 pt-24">
-      <div className="flex flex-col gap-4 items-center">
-        <h1 className="text-4xl font-semibold font-secondary">PROJECT</h1>
-        <div className="border-b-4 border-blue-800 w-6"></div>
-        <p className="text-sm sm:text-base font-light text-secondary text-center px-4 max-w-2xl">
-          Here you will find some of the personal and clients projects that I
-          created.
-        </p>
+    <Section
+      id="projects"
+      title="Projects"
+      intro="Personal and client projects I've built."
+    >
+      <div className="space-y-20 sm:space-y-28">
+        {featuredProjects.map((project, index) => (
+          <ProjectCard key={project.title} index={index} {...project} />
+        ))}
       </div>
-      <div className="max-w-5xl flex flex-col gap-24 mx-auto mt-12 px-4 pb-8">
-        {featuredProjects.map((item: Project, index: number) => [
-            <ProjectCard key={index} index={index} {...item} />,
-          ])}
-      </div>
-      <div className="flex flex-col justify-center items-center gap-4 pt-24">
-        <h2 className="text-2xl font-semibold font-secondary text-center">
-          Other Noteworthy Projects
-        </h2>
-        <p className="font-secondary text-sm sm:text-lg text-secondary font-light">
-          view the archive
-        </p>
-        <div className="max-w-5xl gap-4 px-3 sm:px-2 flex flex-wrap justify-center my-8">
-          {otherProjects.map((item: Project, index: number) => [
-              <OtherProjectCard key={index} {...item} />,
-            ])}
-        </div>
-        <Link href="https://github.com/wubeZ" target="_blank" className="bg-[#3652f14d] hover:bg-[#e241412a] transition-colors duration-200  text-center text-white w-28 px-2 py-4 cursor-pointer mt-4">
-          Show More
+
+      <div className="mt-24 sm:mt-32">
+        <h3 className="text-xl font-semibold">More projects</h3>
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {otherProjects.map((project) => (
+            <li key={project.title} className="flex">
+              <OtherProjectCard {...project} />
+            </li>
+          ))}
+        </ul>
+        <Link
+          href="https://github.com/wubeZ"
+          target="_blank"
+          className="mt-10 inline-flex items-center gap-2 font-semibold text-signal underline-offset-4 hover:underline"
+        >
+          <FiGithub aria-hidden />
+          More on GitHub
         </Link>
       </div>
-    </main>
+    </Section>
   );
 };
 

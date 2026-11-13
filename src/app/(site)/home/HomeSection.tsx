@@ -1,75 +1,49 @@
-"use client";
-
-import React from "react";
-import { HiOutlineChevronDoubleDown } from "react-icons/hi";
-import { Social } from "@/lib/types";
-import { email, github, linkedin, twitter } from "@/lib/socials";
 import Link from "next/link";
+import { email, github, linkedin, twitter } from "@/lib/socials";
+import SocialLinks from "../components/SocialLinks";
 
-const socials: Social[] = [email, linkedin, github, twitter];
+const RESUME_URL =
+  "https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing";
 
 const HomeSection = () => {
   return (
-    <main
+    <section
       id="home"
-      className="relative text-white pb-28 pt-24 flex flex-col items-center justify-center"
+      aria-label="Introduction"
+      className="container-page pb-20 pt-20 sm:pb-32 sm:pt-36"
     >
-      <div className="rounded-full overflow-hidden w-32 h-32 mb-6">
-        <img
-          src="https://avatar.iran.liara.run/public/17"
-          alt="Profile"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Main Heading */}
-      <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold font-primary text-center mb-4">
-        Hi, I&apos;m <span className="text-cyan-400">Wubshet</span> 👋
+      <h1 className="text-[clamp(3.25rem,10vw,5.75rem)] font-bold leading-[0.92] tracking-[-0.035em]">
+        Wubshet
+        <br />
+        Zeleke
       </h1>
-
-      {/* Subheading */}
-      <p className="text-base md:text-xl lg:text-2xl text-center font-primary font-extralight mb-8 px-4">
-        Building digital products, brands, and experiences. <br />I specialize
-        in{" "}
-        <span className="">
-          Full Stack Development
-        </span>{" "}
-        and robust web applications.
+      <p className="mt-8 text-xl font-medium sm:text-2xl">
+        Full-stack developer based in Ethiopia
       </p>
-      <Link
-        href={`https://drive.google.com/file/d/18cS7JgXS9-RLsurExSxZty2R3SkxKDne/view?usp=sharing`}
-        target="_blank"
-        className="bg-white text-black hover:bg-cyan-400 transition-colors duration-200 px-6 py-3 rounded-lg text-lg font-medium mb-8"
-      >
-        Resume
-      </Link>
+      <p className="mt-3 max-w-[52ch] text-lg leading-relaxed text-mist">
+        I build digital products, brands and experiences, with a focus on
+        robust web applications.
+      </p>
 
-      {/* Social Links */}
-      <div className="flex gap-6 mt-8">
-        {socials.map(({ title, link, icon }, index) => (
+      <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-6">
+        <div className="flex gap-3">
           <Link
-            key={index}
-            href={link}
-            target="_blank"
-            aria-label={`Link to ${title}`}
-            className="text-2xl hover:text-cyan-400 transition-colors duration-200"
+            href="#projects"
+            className="rounded-md bg-signal px-5 py-3 font-semibold text-night transition-colors hover:bg-paper"
           >
-            {icon}
+            View projects
           </Link>
-        ))}
+          <Link
+            href={RESUME_URL}
+            target="_blank"
+            className="rounded-md border border-line px-5 py-3 font-semibold transition-colors hover:border-paper"
+          >
+            Resume
+          </Link>
+        </div>
+        <SocialLinks socials={[email, linkedin, github, twitter]} />
       </div>
-      <Link
-        href="#about"
-        className=""
-        aria-label="Scroll down to About Section"
-      >
-        <p className="hidden sm:flex justify-center items-center mt-32 md:mt-16 border-2 border-slate-500 rounded-full h-12 w-8 hover:text-cyan-500 hover:border-cyan-500 transition-colors duration-200">
-          <span className="text-sm animate-bounce">
-            <HiOutlineChevronDoubleDown />
-          </span>
-        </p>
-      </Link>
-    </main>
+    </section>
   );
 };
 

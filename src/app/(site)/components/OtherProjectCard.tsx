@@ -1,9 +1,7 @@
-import React from "react";
-import { FiExternalLink } from "react-icons/fi";
-import { FiGithub } from "react-icons/fi";
-import { BsFolder } from "react-icons/bs";
-import { Project } from "@/lib/types";
 import Link from "next/link";
+import { Project } from "@/lib/types";
+import ProjectLinks from "./ProjectLinks";
+import TechList from "./TechList";
 
 const OtherProjectCard = ({
   title,
@@ -12,56 +10,33 @@ const OtherProjectCard = ({
   githubLink,
   techUsed,
 }: Project) => {
+  const href = siteLink || githubLink;
+
   return (
-    <div className="group relative cursor-pointer hover:text-[#aef3bfda]">
-      <main className="w-72 xs:w-96 h-72 sm:hover:-translate-y-2 transition-all ease-linear">
-        <div className="p-4 rounded-md bg-[#266e8a25] shadow-md flex flex-col gap-4 h-full">
-          <div className="flex justify-between">
-            <p className="text-2xl">
-              <BsFolder />
-            </p>
-            <p className="relative z-10 flex gap-2 text-white text-2xl">
-              {githubLink && (
-                <Link target="_blank" href={githubLink} aria-label="link to github repo">
-                  <span className="hover:text-cyan-600 text-xl">
-                    <FiGithub />
-                  </span>
-                </Link>
-              )}
-              {siteLink && (
-                <Link target="_blank" href={siteLink} aria-label="link to site">
-                  <span className="hover:text-cyan-600 text-xl">
-                    <FiExternalLink />
-                  </span>
-                </Link>
-              )}
-            </p>
-          </div>
-          <h2 className="text-lg font-bold">
-            {/* The ::after overlay makes the whole card clickable without nesting links. */}
-            <Link
-              target="_blank"
-              href={siteLink || githubLink || ""}
-              className="after:absolute after:inset-0"
-            >
-              {title}
-            </Link>
-          </h2>
-          <p className="text-sm text-secondary max-w-md h-24 line-clamp-5 hover:text-slate-300 transition-colors duration-200">
-            {description}
-          </p>
-          <div className="flex flex-wrap text-teal-400 gap-2 max-w-md">
-            {techUsed.map((tech: string, index: number) => {
-              return (
-                <p className="text-sm font-tech hover:text-cyan-300 transition-colors duration-200" key={index}>
-                  {tech}
-                </p>
-              );
-            })}
-          </div>
-        </div>
-      </main>
-    </div>
+    <article className="relative flex w-full flex-col rounded-lg border border-line bg-harbor p-6 transition-colors hover:border-mist/60">
+      <h4 className="text-lg font-semibold">
+        {href ? (
+          // The ::after overlay makes the whole card clickable without nesting links.
+          <Link href={href} target="_blank" className="after:absolute after:inset-0">
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
+      </h4>
+      <p className="mt-3 line-clamp-4 text-[0.9375rem] leading-relaxed text-mist">
+        {description}
+      </p>
+      <div className="mt-auto pt-6">
+        <TechList items={techUsed} />
+        <ProjectLinks
+          title={title}
+          githubLink={githubLink}
+          siteLink={siteLink}
+          className="relative z-10 mt-5 w-fit"
+        />
+      </div>
+    </article>
   );
 };
 

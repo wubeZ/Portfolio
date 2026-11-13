@@ -10,19 +10,19 @@ export const email: Social = {
 };
 
 export const linkedin: Social = {
-  title: "Linkedin",
+  title: "LinkedIn",
   link: "https://www.linkedin.com/in/wubshet-zeleke",
   icon: <FaLinkedin />,
 };
 
 export const github: Social = {
-  title: "Github",
+  title: "GitHub",
   link: "https://www.github.com/wubeZ",
   icon: <FaGithub />,
 };
 
 export const twitter: Social = {
-  title: "Twitter",
+  title: "X (Twitter)",
   link: "https://www.twitter.com/wube_Z",
   icon: <FaXTwitter />,
 };

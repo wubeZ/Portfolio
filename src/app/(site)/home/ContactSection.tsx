@@ -1,30 +1,30 @@
 "use client";
+
 import React, { useState } from "react";
+import { email as emailSocial, linkedin, telegram } from "@/lib/socials";
+import Section from "../components/Section";
+import SocialLinks from "../components/SocialLinks";
+
+type Status = "idle" | "sending" | "sent" | "failed";
+
+const fieldClass =
+  "mt-2 w-full rounded-md border border-line bg-harbor px-4 py-3 text-paper transition-colors focus:border-signal focus:outline-none";
 
 const ContactSection = () => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-  const [isSending, setSending] = useState<boolean>(false);
-  const [isSuccess, setSuccess] = useState<boolean>(false);
-  const [isError, setError] = useState<boolean>(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const Data: { name: string; email: string; message: string } = {
-      name,
-      email,
-      message,
-    };
-    setSending(true);
+    setStatus("sending");
     let sent = false;
     try {
       const response = await fetch("/api/emailSubmit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
       });
       sent = response.ok;
     } catch {
@@ -32,102 +32,104 @@ const ContactSection = () => {
     }
 
     if (sent) {
-      setSuccess(true);
+      setStatus("sent");
       setName("");
       setEmail("");
       setMessage("");
     } else {
-      setError(true);
+      setStatus("failed");
     }
-    setSending(false);
-    setTimeout(() => {
-      setSuccess(false);
-      setError(false);
-    }, 7000);
   };
-  return (
-    <main id="contact" className="mt-24 pt-24 pb-16 px-4">
-      <div className="flex flex-col gap-4 justify-center items-center">
-        <h1 className="text-4xl font-semibold font-secondary text-center">
-          GET IN TOUCH!
-        </h1>
-        <div className="border-b-4 border-blue-800 w-6"></div>
-        <p className="text-sm sm:text-base font-light text-secondary text-center px-4 max-w-2xl">
-          Feel free to Contact me by submitting the form below and I will get
-          back to you as soon as possible
-        </p>
-      </div>
-      <div className="max-w-lg mx-auto mt-8 px-8">
-        {isSuccess && (
-          <p className="text-center font-secondary text-lg border border-slate-300 opacity-80  bg-green-500 w-full py-4 px-2 rounded-md">
-            Email Sent. I will get back to you as soon as possible.
-          </p>
-        )}
-        {isError && (
-          <p className="text-center text-lg font-secondary border border-slate-300 opacity-80 bg-red-500 w-full py-4 rounded-md">
-            Email Not Sent. Try Again Later...
-          </p>
-        )}
-      </div>
 
-      <div className="mx-auto max-w-4xl mt-12 px-8 bg-[#2b394d4c]">
-        <form className="flex flex-col gap-4 py-8" onSubmit={handleSubmit}>
-          <label className="font-secondary" htmlFor="name">
-            {/* Name */}
-          </label>
-          <input
-            placeholder="Your name*"
-            id="name"
-            value={name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
-            }
-            type="text"
-            required
-            className="rounded-md caret-cyan-200 text-cyan-200 bg-[#2b394d4c] focus:border focus:border-cyan-800 p-2 h-12 placeholder:font-secondary placeholder:text-sm focus:outline-0"
-          />
-          <label className="font-secondary" htmlFor="email">
-            {/* Email */}
-          </label>
-          <input
-            placeholder="Your email*"
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            required
-            className="rounded-md text-cyan-200 bg-[#2b394d4c] focus:border focus:border-cyan-800 p-2 h-12 placeholder:font-secondary placeholder:text-sm focus:outline-0"
-          />
-          <label className="font-secondary" htmlFor="message">
-            {/* Message */}
-          </label>
-          <textarea
-            placeholder="Message:"
-            name="message"
-            id="message"
-            value={message}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setMessage(e.target.value)
-            }
-            required
-            cols={30}
-            rows={10}
-            className="rounded-md text-cyan-200 bg-[#2b394d4c] focus:border focus:border-cyan-800 p-2 placeholder:font-secondary placeholder:text-sm focus:outline-0"
-          ></textarea>
-          <button
-            type="submit"
-            disabled={isSending}
-            className={` bg-[#2f41a8a5] ${
-              isSending ? "opacity-50 cursor-not-allowed" : ""
-            }  hover:bg-[#10d1ef55] transition-colors duration-200 sm:mx-auto text-white font-secondary rounded-md px-4 sm:px-12 py-2`}
+  return (
+    <Section id="contact" title="Contact">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+        <div>
+          <p className="max-w-[40ch] text-lg leading-relaxed text-mist">
+            Have a project or a role in mind? Send a message and I&apos;ll
+            reply by email.
+          </p>
+          <a
+            href={emailSocial.link}
+            className="mt-6 inline-block text-lg font-semibold text-signal underline-offset-4 hover:underline"
           >
-            {isSending ? "Sending..." : "SUBMIT"}
-          </button>
+            wubezeleke@gmail.com
+          </a>
+          <div className="mt-6">
+            <SocialLinks socials={[linkedin, telegram]} />
+          </div>
+        </div>
+
+        <form className="space-y-5" onSubmit={handleSubmit}>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="name" className="text-sm font-medium">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                autoComplete="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className={fieldClass}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="text-sm font-medium">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className={fieldClass}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="message" className="text-sm font-medium">
+              Message
+            </label>
+            <textarea
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              rows={7}
+              className={`${fieldClass} resize-y`}
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="rounded-md bg-signal px-6 py-3 font-semibold text-night transition-colors hover:bg-paper disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {status === "sending" ? "Sending…" : "Send message"}
+            </button>
+            <p role="status" className="text-sm">
+              {status === "sent" && (
+                <span className="text-signal">
+                  Message sent. I&apos;ll reply by email.
+                </span>
+              )}
+              {status === "failed" && (
+                <span className="text-[#ff9b9b]">
+                  The message didn&apos;t send. Try again, or email
+                  wubezeleke@gmail.com directly.
+                </span>
+              )}
+            </p>
+          </div>
         </form>
       </div>
-    </main>
+    </Section>
   );
 };
 
